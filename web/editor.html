@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Options</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+const script = document.createElement("script");
+if (process.env.NODE_ENV === "development") {
+  script.setAttribute("src", "http://localhost:8888/editor.js");
+} else {
+  script.setAttribute("src", "./dist/editor.js");
+}
+document.body.appendChild(script);
+  </script>
+</body>
+</html>

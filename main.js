@@ -9,7 +9,7 @@ require("electron-debug")({
 
 require("./messages");
 
-let mainWin = null, configWin = null;
+let mainWin = null, configWin = null, editorWin = null;
 const WINDOW_FRAME_WIDTH = 300;
 const WINDOW_FRAME_HEIGHT = 500;
 const CONFIG_WINDOW_FRAME_WIDTH = 300;
@@ -64,10 +64,26 @@ async function createWindow() {
     frame: false,
   });
 
+  editorWin = new BrowserWindow({
+    parent: mainWin,
+    show: false,
+    width: CONFIG_WINDOW_FRAME_WIDTH,
+    height: CONFIG_WINDOW_FRAME_HEIGHT,
+    resizable: false,
+    maximizable: false,
+    fullscreen: false,
+    fullscreenable: false,
+    title: "Playlist Editor",
+    frame: false,
+  });
+
   mainWin.once("ready-to-show", () => mainWin.show());
 
   ipcMain.on("SHOW_CONFIG_WINDOW", function() {
     configWin.show();
+  });
+  ipcMain.on("SHOW_EDITOR_WINDOW", function() {
+    editorWin.show();
   });
 
   // and load the index.html of the app.
@@ -83,9 +99,20 @@ async function createWindow() {
     slashes: true,
   }));
 
+  editorWin.loadURL(url.format({
+    pathname: asset("editor.html"),
+    protocol: "file:",
+    slashes: true,
+  }));
+
   configWin.on("close", function(e) {
     e.preventDefault();
     configWin.hide();
+    return false;
+  });
+  editorWin.on("close", function(e) {
+    e.preventDefault();
+    editorWin.hide();
     return false;
   });
 

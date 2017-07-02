@@ -44,6 +44,10 @@ class App extends React.Component {
     ipcRenderer.send("SHOW_CONFIG_WINDOW");
   }
 
+  handleShowEditor() {
+    ipcRenderer.send("SHOW_EDITOR_WINDOW");
+  }
+
   render() {
     const { running, playlist, current } = this.props;
     return (
@@ -60,6 +64,13 @@ class App extends React.Component {
         </button>
         <Playlist items={playlist} current={current} />
         <nav className="App__actions">
+          <button
+            className="App__actions__button App__actions__button--editor"
+            onClick={this.handleShowEditor}
+            title="Edit Playlist"
+          >
+            Edit Playlist
+          </button>
           <button
             className="App__actions__button App__actions__button--config"
             onClick={this.handleShowConfig}

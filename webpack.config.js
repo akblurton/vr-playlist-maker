@@ -22,6 +22,11 @@ module.exports = function webpackConfig() {
         "babel-polyfill",
         path.join(srcDir, "/config.js"),
       ],
+      editor: [
+        "react-hot-loader/patch",
+        "babel-polyfill",
+        path.join(srcDir, "/editor.js"),
+      ],
     },
     output: {
       filename: "[name].js",
