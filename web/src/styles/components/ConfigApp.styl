@@ -7,7 +7,7 @@
     display: block
     border-bottom: 1px solid $border
 
-    &__label
+    &__label, &__value
       display: block
       font-weight: 600
       font-size: 12px
@@ -16,3 +16,16 @@
     &__control
       display: block
       width: 100%
+
+    &__value
+      padding: 0 10px
+
+    &__row
+      display: flex
+      align-items: center
+      .ConfigApp__field__control
+        width: auto
+        flex: 1
+      .ConfigApp__field__value
+        width: 60px
+        flex-shrink: 0

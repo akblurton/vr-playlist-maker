@@ -30,3 +30,10 @@ export const setAudioDevice = device => ({
   type: SET_AUDIO_DEVICE,
   device,
 });
+
+export const SET_CONFIG_OPTION = "SET_CONFIG_OPTION";
+export const setConfigOption = (key, value) => ({
+  type: SET_CONFIG_OPTION,
+  key,
+  value,
+});

@@ -21,6 +21,7 @@ export const INITIAL_STATE = {
   config: {
     availableDevices: [],
     audioDevice: null,
+    beforeDelay: 0,
     startNotice: {
       enabled: true,
       sound: START,
@@ -80,6 +81,14 @@ export default function(state = INITIAL_STATE, action) {
         config: {
           ...state.config,
           availableDevices: action.devices,
+        },
+      };
+    case actions.SET_CONFIG_OPTION:
+      return {
+        ...state,
+        config: {
+          ...state.config,
+          [action.key]: action.value,
         },
       };
     default:

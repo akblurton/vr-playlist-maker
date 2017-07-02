@@ -14,6 +14,7 @@ export function* processPlaylist() {
     endNotice = false,
     warnings = [],
     audioDevice = null,
+    beforeDelay = 0,
   } = yield select(config);
   if (!playlist) {
     // Error occurred
@@ -84,6 +85,10 @@ export function* processPlaylist() {
     console.log(
       "Playlist item complete in ", endedAt - startedAt, "target:", duration
     );
+
+    // Wait specified time between apps to allow for shutdown
+    console.log("Waiting ", beforeDelay, "s until opening next app");
+    yield call(delay, beforeDelay * 1000);
   }
   if (endNotice.enabled) {
     yield call([endSound, endSound.play]);
