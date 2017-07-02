@@ -104,6 +104,16 @@ export default function(state = INITIAL_STATE, action) {
         config: merge,
       };
     }
+    case actions.ADD_TO_PLAYLIST:
+      return {
+        ...state,
+        playlist: [
+          ...state.playlist, {
+            exe: action.exe,
+            duration: TEN_MINUTES,
+          },
+        ],
+      };
     default:
       return state;
   }

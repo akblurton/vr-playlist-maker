@@ -37,3 +37,9 @@ export const setConfigOption = (key, value) => ({
   key,
   value,
 });
+
+export const ADD_TO_PLAYLIST = "ADD_TO_PLAYLIST";
+export const addToPlaylist = exe => ({
+  type: ADD_TO_PLAYLIST,
+  exe,
+});

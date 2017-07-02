@@ -3,6 +3,7 @@ import "styles/components/PlaylistEditor.styl";
 import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
+import { executable } from "helpers/formatting";
 
 class PlaylistEditor extends React.Component {
   static propTypes = {
@@ -23,7 +24,7 @@ class PlaylistEditor extends React.Component {
           >
             <div className="PlaylistEditor__item__row">
               <h2 className="PlaylistEditor__item__title" title={item.exe}>
-                {item.exe}
+                {executable(item.exe)}
               </h2>
             </div>
             <div className="PlaylistEditor__item__row">

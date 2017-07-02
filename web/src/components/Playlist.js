@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import cn from "classnames";
 
 import { autobind } from "core-decorators";
-import { time } from "helpers/formatting";
+import { time, executable } from "helpers/formatting";
 
 class Playlist extends React.Component {
   static propTypes = {
@@ -45,7 +45,7 @@ class Playlist extends React.Component {
             ref={current === index ? this.setActive : null}
             title={item.exe}
           >
-            {item.exe}
+            {executable(item.exe)}
             <time className="Playlist__item__duration">
               {time(item.duration)}
             </time>
