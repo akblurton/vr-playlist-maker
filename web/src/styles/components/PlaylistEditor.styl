@@ -1,0 +1,49 @@
+.PlaylistEditor
+  height: calc(100vh - 75px)
+  overflow-y: scroll
+  &__item
+    overflow: hidden
+    font-size: 16px
+    padding: 10px
+    border-bottom: 1px solid $border
+    transition: background-color 0.3s ease-in-out
+    list-style: decimal-leading-zero inside
+    white-space: nowrap
+    text-overflow: ellipsis
+
+    &.is-active
+      background-color: $highlight
+
+    &__row
+      display: flex
+
+    &__title
+      font-size: 16px
+      margin: 5px 0 10px
+      font-style: italic
+
+
+    &__field
+      display: block
+      flex: 1
+
+      &__label, &__value
+        display: block
+        font-weight: 600
+        font-size: 12px
+        margin-bottom: 5px
+
+    &__actions
+      display: block
+
+      &__button
+        width: 30px
+        height: 30px
+        margin-left: 5px
+        border: 0
+        background-color: none
+        -webkit-mask: no-repeat center / cover
+
+        &--remove
+          background-color: #FA303B
+          -webkit-mask-image: url("../../icons/circle-cross.svg")

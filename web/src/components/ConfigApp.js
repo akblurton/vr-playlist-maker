@@ -108,7 +108,7 @@ class ConfigApp extends React.Component {
     } = this.props;
     return (
       <div className="ConfigApp">
-        <ControlBar minimize={false} />
+        <ControlBar minimize={false} title="Options" />
         <label className="ConfigApp__field">
           <span className="ConfigApp__field__label">
             Delay between applications

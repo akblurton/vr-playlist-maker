@@ -7,10 +7,12 @@ import { remote } from "electron";
 class ControlBar extends React.Component {
   static propTypes = {
     minimize: PropTypes.bool,
+    title: PropTypes.string,
   };
 
   static defaultProps = {
     minimize: true,
+    title: "",
   };
 
   handleMinimize() {
@@ -22,9 +24,12 @@ class ControlBar extends React.Component {
   }
 
   render() {
-    const { minimize } = this.props;
+    const { minimize, title } = this.props;
     return (
       <header className="ControlBar">
+        <h1 className="ControlBar__title">
+          {title}
+        </h1>
         {minimize && (
           <button
             className="ControlBar__action ControlBar__action--minimize"

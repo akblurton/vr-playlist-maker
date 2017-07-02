@@ -4,15 +4,17 @@ import { set } from "object-path";
 import deepclone from "deepclone";
 import audioClips from "assets";
 
+const TEN_MINUTES = 1000 * 60 * 10;
+
 export const INITIAL_STATE = {
   playback: {
     running: false,
     index: -1,
   },
   playlist: [
-    { exe: "audioshield.exe", duration: 15000 },
-    { exe: "fruit_ninja.exe", duration: 15000 },
-    { exe: "knockout_league.exe", duration: 15000 },
+    { exe: "audioshield.exe", duration: TEN_MINUTES },
+    { exe: "fruit_ninja.exe", duration: TEN_MINUTES },
+    { exe: "knockout_league.exe", duration: TEN_MINUTES },
   ],
   config: {
     availableDevices: [],

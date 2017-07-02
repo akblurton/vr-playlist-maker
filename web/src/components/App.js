@@ -52,7 +52,7 @@ class App extends React.Component {
     const { running, playlist, current } = this.props;
     return (
       <div className="App">
-        <ControlBar />
+        <ControlBar title="VR Playlist Maker" />
         <button
           className={cn("App__start", {
             "is-running": running,
