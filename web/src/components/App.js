@@ -28,7 +28,7 @@ class App extends React.Component {
 
 export { App };
 export default connect(state => ({
-  running: state.running,
+  running: state.playback.running,
 }), dispatch => ({
   start: () => dispatch(startPlaylist()),
 }))(App);

@@ -91,7 +91,7 @@ export function* processPlaylist() {
     }
 
     // Wait for time to elapse
-    yield call(delay, duration - accumulator);
+    yield call(delay, Math.max(0, duration - accumulator));
     // Kill process
     yield call(send, "KILL_PROCESS", [pid]);
 

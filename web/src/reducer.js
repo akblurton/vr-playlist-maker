@@ -7,7 +7,9 @@ import START from "../audio/start.wav";
 import END from "../audio/end.wav";
 
 const INITIAL_STATE = {
-  running: false,
+  playback: {
+    running: false,
+  },
   playlist: [
     { exe: "audioshield.exe", duration: 10000 },
     { exe: "fruit_ninja.exe", duration: 5000 },
@@ -36,12 +38,18 @@ export default function(state = INITIAL_STATE, action) {
     case actions.START_PLAYLIST:
       return {
         ...state,
-        running: true,
+        playback: {
+          ...state.playback,
+          running: true,
+        },
       };
     case actions.PLAYLIST_COMPLETE:
       return {
         ...state,
-        running: false,
+        playback: {
+          ...state.playback,
+          running: false,
+        },
       };
     default:
       return state;
