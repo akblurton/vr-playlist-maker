@@ -1,9 +1,8 @@
 .ConfigApp
-  height: 100vh
+  height: calc(100vh - 26px)
   overflow-y: scroll
   overflow-x: hidden
-  padding-top: 26px
-  padding-right: 30px
+  margin-top: 26px
 
   &__field
     padding: 10px
@@ -26,7 +25,7 @@
     &__row
       display: flex
       align-items: center
-      .ConfigApp__field__control
+      .ConfigApp__field__control, .AudioSelector
         width: auto
         flex: 1
         &--checkbox
