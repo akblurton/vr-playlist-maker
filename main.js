@@ -1,9 +1,17 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const url = require("url");
+const { listen } = require("./ipc");
 
 require("electron-debug")({
   showDevTools: "undocked",
+});
+
+const delay = t => new Promise(resolve => setTimeout(resolve, t));
+listen("TEST_IPC", async function(message) {
+  console.log(`Got message "${message}", replying in 2 seconds`);
+  await delay(2000);
+  return true;
 });
 
 let win = null;

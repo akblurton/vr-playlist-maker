@@ -10,6 +10,7 @@ module.exports = function webpackConfig() {
   const distDir = path.join(__dirname, "web/dist");
 
   const config = {
+    target: "electron-renderer",
     entry: [
       "react-hot-loader/patch",
       path.join(srcDir, "/app.js"),
