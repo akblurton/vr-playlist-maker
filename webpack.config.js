@@ -11,11 +11,13 @@ module.exports = function webpackConfig() {
 
   const config = {
     entry: [
+      "react-hot-loader/patch",
       path.join(srcDir, "/app.js"),
     ],
     output: {
       filename: "bundle.js",
       path: distDir,
+      publicPath: "http://localhost:8888/",
     },
     module: {
       rules: [
@@ -43,6 +45,7 @@ module.exports = function webpackConfig() {
       new CleanWebpackPlugin(distDir),
     ],
     devServer: {
+      publicPath: "http://localhost:8888/",
       contentBase: distDir,
       hotOnly: true,
       port: 8888,
