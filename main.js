@@ -48,6 +48,7 @@ async function createWindow() {
     fullscreen: false,
     fullscreenable: false,
     title: "VR Playlist Maker",
+    frame: false,
   });
 
   configWin = new BrowserWindow({
@@ -60,6 +61,7 @@ async function createWindow() {
     fullscreen: false,
     fullscreenable: false,
     title: "Options",
+    frame: false,
   });
 
   mainWin.once("ready-to-show", () => mainWin.show());

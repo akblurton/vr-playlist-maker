@@ -1,0 +1,31 @@
+.ControlBar
+  height: 26px
+  background: $fg
+  -webkit-app-region: drag
+  -webkit-user-select: none
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  cursor: -webkit-grab
+
+  &:active
+    cursor: -webkit-grabbing
+
+  &__action
+    -webkit-mask: no-repeat center / contain
+    -webkit-app-region: no-drag
+    width: 15px
+    height: 15px
+    background: $bg
+    cursor: pointer
+    border: 0
+    transition: background-color 0.3s ease-in-out
+    margin-right: 5px
+    overflow: hidden
+    text-indent: -9999px
+    &:hover
+      background-color: #CCC
+    &--close
+      -webkit-mask-image: url("../../icons/circle-cross.svg")
+    &--minimize
+      -webkit-mask-image: url("../../icons/circle-minus.svg")

@@ -12,6 +12,7 @@ import { activePlaylist, currentIndex } from "selectors";
 import { startPlaylist, stopPlaylist } from "actions";
 
 import Playlist from "./Playlist";
+import ControlBar from "./ControlBar";
 
 class App extends React.Component {
   static propTypes = {
@@ -47,6 +48,7 @@ class App extends React.Component {
     const { running, playlist, current } = this.props;
     return (
       <div className="App">
+        <ControlBar />
         <button
           className={cn("App__start", {
             "is-running": running,

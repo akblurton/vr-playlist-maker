@@ -4,8 +4,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { setAudioDevice } from "actions";
+import ControlBar from "./ControlBar";
 
+import { setAudioDevice } from "actions";
 class ConfigApp extends React.Component {
   static propTypes = {
     onAudioDeviceChange: PropTypes.func.isRequired,
@@ -43,6 +44,7 @@ class ConfigApp extends React.Component {
     } = this.props;
     return (
       <div className="ConfigApp">
+        <ControlBar minimize={false} />
         <label className="ConfigApp__field">
           <span className="ConfigApp__field__label">
             Output audio notifications to:
