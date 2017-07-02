@@ -111,7 +111,7 @@ export function* startPlaylist() {
 
 // Look for the following in this order if default device has not yet been set
 const DEFAULT_AUDIO_CHOICE = [
-  "Rift Audio",
+  "Rift (Rift Audio)",
   "HTC-VIVE-0",
   "Default",
 ];
