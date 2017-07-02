@@ -63,6 +63,12 @@ module.exports = function webpackConfig() {
             },
           ],
         },
+        {
+          test: /\.(mp3|wav)$/,
+          use: [
+            "file-loader",
+          ],
+        },
       ],
     },
     resolve: {

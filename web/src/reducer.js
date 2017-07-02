@@ -1,5 +1,9 @@
 import * as actions from "./actions";
 
+import KLAXON from "../audio/klaxon.wav";
+import BEEP from "../audio/beep.wav";
+import BOOP from "../audio/boop.wav";
+
 const INITIAL_STATE = {
   running: false,
   playlist: [
@@ -8,11 +12,12 @@ const INITIAL_STATE = {
     { exe: "knockout_league.exe", duration: 10000 },
   ],
   config: {
+    audioDevice: null,
     startNotice: true,
     warnings: [
-      { sound: "beep.exe", time: 3000 },
-      { sound: "boop.exe", time: 1000 },
-      { sound: "klaxxon.exe", time: 300 },
+      { sound: BEEP, time: 3000 },
+      { sound: BOOP, time: 1000 },
+      { sound: KLAXON, time: 300 },
     ],
   },
 };
