@@ -1,0 +1,19 @@
+{
+  "name": "vr-playlist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./",
+    "start": "NODE_ENV=development electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "electron": "^1.6.11",
+    "eslint": "^4.1.1",
+    "eslint-plugin-react": "^7.1.0"
+  }
+}
