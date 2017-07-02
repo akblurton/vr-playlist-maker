@@ -24,6 +24,7 @@
     "devtron": "^1.4.0",
     "electron": "^1.6.11",
     "electron-debug": "^1.2.0",
+    "electron-devtools-installer": "^2.2.0",
     "eslint": "^4.1.1",
     "eslint-loader": "^1.8.0",
     "eslint-plugin-react": "^7.1.0",
