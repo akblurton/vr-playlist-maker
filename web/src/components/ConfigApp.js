@@ -8,9 +8,6 @@ import { autobind } from "core-decorators";
 import ControlBar from "./ControlBar";
 import AudioSelector from "./AudioSelector";
 
-import { set } from "object-path";
-import deepclone from "deepclone";
-
 import { setAudioDevice, setConfigOption } from "actions";
 class ConfigApp extends React.Component {
   static propTypes = {
@@ -40,54 +37,20 @@ class ConfigApp extends React.Component {
     }).isRequired,
   };
 
-  state = {
-    config: {},
-  };
-
-  timeouts = {};
-
-  componentWillMount() {
-    this.setState({
-      config: this.props.config,
-    });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      config: nextProps.config,
-    });
-  }
-
   updateStore(key, value) {
-    if (key in this.timeouts) {
-      clearTimeout(this.timeouts[key]);
-    }
-    const { onSettingsChange } = this.props;
-    this.timeouts[key] = setTimeout(() => {
-      onSettingsChange(key, value);
-    }, 100);
+    this.props.onSettingsChange(key, value);
   }
 
   @autobind
   handleSettingsToggle(key) {
-    const { config } = this.state;
-
     return ({ target: { checked } }) => {
-      const merge = deepclone(config);
-      set(merge, key, !!checked),
-      this.setState({ config: merge });
       this.updateStore(key, !!checked);
     };
   }
 
   @autobind
   handleSettingsChange(key) {
-    const { config } = this.state;
-
     return ({ target: { value } }) => {
-      const merge = deepclone(config);
-      set(merge, key, value),
-      this.setState({ config: merge });
       this.updateStore(key, value);
     };
   }
@@ -102,8 +65,6 @@ class ConfigApp extends React.Component {
         endNotice,
         warnings,
       },
-    } = this.state;
-    const {
       onAudioDeviceChange,
     } = this.props;
     return (

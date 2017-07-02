@@ -7,11 +7,6 @@ import { remote, ipcRenderer } from "electron";
 let subscription = null;
 let master = null;
 
-let lastState = {};
-ipcRenderer.on("__REDUX_UPDATED", function(event, state) {
-  lastState = state;
-});
-
 export function sendAll(...args) {
   const windows = remote.BrowserWindow.getAllWindows();
   for (const win of windows) {
@@ -40,21 +35,29 @@ export function setMaster(store) {
   updateSlaves();
 }
 
+let timeout = null;
+export const childDispatch = action => {
+  clearTimeout(timeout);
+  timeout = setTimeout(function() {
+    sendAll("__REDUX_ACTION", action);
+  }, 100);
+};
+
 export const childMiddleware = () => next => action => {
   if (action.type === "__REDUX_UPDATED") {
     return next(action);
   }
-  sendAll("__REDUX_ACTION", action);
+  childDispatch(action);
   return next(action);
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export function createChild(defaultState = lastState) {
-  const store = createStore(function(state = defaultState, action) {
+export function createChild(reducer) {
+  const store = createStore(function(state, action) {
     if (action.state) {
       return action.state;
     }
-    return state;
+    return reducer(state, action);
   }, composeEnhancers(applyMiddleware(childMiddleware)));
 
   ipcRenderer.on("__REDUX_UPDATED", (event, state) => {
@@ -62,5 +65,16 @@ export function createChild(defaultState = lastState) {
   });
   sendAll("__REDUX_CHILD_CREATED");
 
-  return store;
+  const rr = ::store.replaceReducer;
+  return {
+    ...store,
+    replaceReducer(reducer) {
+      rr(function(state, action) {
+        if (action.state) {
+          return action.state;
+        }
+        return reducer(state, action);
+      });
+    },
+  };
 }
