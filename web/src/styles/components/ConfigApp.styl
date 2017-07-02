@@ -1,6 +1,7 @@
 .ConfigApp
   height: 100vh
   overflow-y: scroll
+  padding-top: 26px
 
   &__field
     padding: 10px
@@ -26,6 +27,9 @@
       .ConfigApp__field__control
         width: auto
         flex: 1
+        &--checkbox
+          width: 25px
+          flex: none
       .ConfigApp__field__value
         width: 60px
         flex-shrink: 0

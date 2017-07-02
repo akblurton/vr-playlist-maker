@@ -1,12 +1,8 @@
 import * as actions from "./actions";
 
-/* eslint-disable max-len */
-import SECONDS_10 from "../audio/speech/application closing in 10 seconds-male.mp3";
-import MINUTES_5 from "../audio/speech/application closing in 5 minutes-male.mp3";
-import MINUTES_1 from "../audio/speech/application closing in 1 minute-male.mp3";
-import START from "../audio/speech/starting application-male.mp3";
-import END from "../audio/speech/playlist complete-male.mp3";
-/* eslint-enable max-len */
+import { set } from "object-path";
+import deepclone from "deepclone";
+import audioClips from "assets";
 
 export const INITIAL_STATE = {
   playback: {
@@ -24,18 +20,33 @@ export const INITIAL_STATE = {
     beforeDelay: 0,
     startNotice: {
       enabled: true,
-      sound: START,
+      sound: audioClips.speech.male.starting_application.value,
       volume: 50,
     },
     endNotice: {
       enabled: true,
-      sound: END,
+      sound: audioClips.speech.male.playlist_complete.value,
       volume: 50,
     },
     warnings: [
-      { sound: MINUTES_5, time: 12000, volume: 50 },
-      { sound: MINUTES_1, time: 8000, volume: 50 },
-      { sound: SECONDS_10, time: 4000, volume: 50 },
+      {
+        sound: audioClips.speech.male.application_closing_in_5_minutes.value,
+        time: 12000,
+        volume: 50,
+        enabled: true,
+      },
+      {
+        sound: audioClips.speech.male.application_closing_in_1_minute.value,
+        time: 8000,
+        volume: 50,
+        enabled: true,
+      },
+      {
+        sound: audioClips.speech.male.application_closing_in_10_seconds.value,
+        time: 4000,
+        volume: 50,
+        enabled: true,
+      },
     ],
   },
 };
@@ -83,14 +94,14 @@ export default function(state = INITIAL_STATE, action) {
           availableDevices: action.devices,
         },
       };
-    case actions.SET_CONFIG_OPTION:
+    case actions.SET_CONFIG_OPTION: {
+      const merge = deepclone(state.config);
+      set(merge, action.key, action.value);
       return {
         ...state,
-        config: {
-          ...state.config,
-          [action.key]: action.value,
-        },
+        config: merge,
       };
+    }
     default:
       return state;
   }

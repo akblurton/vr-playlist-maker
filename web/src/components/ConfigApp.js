@@ -6,6 +6,10 @@ import { connect } from "react-redux";
 import { autobind } from "core-decorators";
 
 import ControlBar from "./ControlBar";
+import AudioSelector from "./AudioSelector";
+
+import { set } from "object-path";
+import deepclone from "deepclone";
 
 import { setAudioDevice, setConfigOption } from "actions";
 class ConfigApp extends React.Component {
@@ -65,16 +69,25 @@ class ConfigApp extends React.Component {
   }
 
   @autobind
+  handleSettingsToggle(key) {
+    const { config } = this.state;
+
+    return ({ target: { checked } }) => {
+      const merge = deepclone(config);
+      set(merge, key, !!checked),
+      this.setState({ config: merge });
+      this.updateStore(key, !!checked);
+    };
+  }
+
+  @autobind
   handleSettingsChange(key) {
     const { config } = this.state;
 
     return ({ target: { value } }) => {
-      this.setState({
-        config: {
-          ...config,
-          [key]: value,
-        },
-      });
+      const merge = deepclone(config);
+      set(merge, key, value),
+      this.setState({ config: merge });
       this.updateStore(key, value);
     };
   }
@@ -85,6 +98,9 @@ class ConfigApp extends React.Component {
         audioDevice,
         availableDevices,
         beforeDelay,
+        startNotice,
+        endNotice,
+        warnings,
       },
     } = this.state;
     const {
@@ -127,6 +143,111 @@ class ConfigApp extends React.Component {
               </option>
             ))}
           </select>
+        </label>
+        <label className="ConfigApp__field">
+          <span className="ConfigApp__field__label">
+            Notify when starting an application:
+          </span>
+          <div className="ConfigApp__field__row">
+            <input
+              type="checkbox"
+              className="ConfigApp__field__control
+                         ConfigApp__field__control--checkbox"
+              value="enabled"
+              checked={startNotice.enabled || false}
+              onChange={this.handleSettingsToggle("startNotice.enabled")}
+            />
+            <AudioSelector
+              onChange={this.handleSettingsChange("startNotice.sound")}
+              onVolumeChange={this.handleSettingsChange("startNotice.volume")}
+              value={startNotice.sound}
+              volume={startNotice.volume}
+            />
+          </div>
+        </label>
+        <label className="ConfigApp__field">
+          <span className="ConfigApp__field__label">
+            Notify when playlist completed:
+          </span>
+          <div className="ConfigApp__field__row">
+            <input
+              type="checkbox"
+              className="ConfigApp__field__control
+                         ConfigApp__field__control--checkbox"
+              value=""
+              checked={endNotice.enabled || false}
+              onChange={this.handleSettingsToggle("endNotice.enabled")}
+            />
+            <AudioSelector
+              onChange={this.handleSettingsChange("endNotice.sound")}
+              onVolumeChange={this.handleSettingsChange("endNotice.volume")}
+              value={endNotice.sound}
+              volume={endNotice.volume}
+            />
+          </div>
+        </label>
+        <label className="ConfigApp__field">
+          <span className="ConfigApp__field__label">
+            Notify when 5 minutes remain:
+          </span>
+          <div className="ConfigApp__field__row">
+            <input
+              type="checkbox"
+              className="ConfigApp__field__control
+                         ConfigApp__field__control--checkbox"
+              value="enabled"
+              checked={warnings[0].enabled || false}
+              onChange={this.handleSettingsToggle("warnings.0.enabled")}
+            />
+            <AudioSelector
+              onChange={this.handleSettingsChange("warnings.0.sound")}
+              onVolumeChange={this.handleSettingsChange("warnings.0.volume")}
+              value={warnings[0].sound}
+              volume={warnings[0].volume}
+            />
+          </div>
+        </label>
+        <label className="ConfigApp__field">
+          <span className="ConfigApp__field__label">
+            Notify when 1 minute remains:
+          </span>
+          <div className="ConfigApp__field__row">
+            <input
+              type="checkbox"
+              className="ConfigApp__field__control
+                         ConfigApp__field__control--checkbox"
+              value="enabled"
+              checked={warnings[1].enabled || false}
+              onChange={this.handleSettingsToggle("warnings.1.enabled")}
+            />
+            <AudioSelector
+              onChange={this.handleSettingsChange("warnings.1.sound")}
+              onVolumeChange={this.handleSettingsChange("warnings.1.volume")}
+              value={warnings[1].sound}
+              volume={warnings[1].volume}
+            />
+          </div>
+        </label>
+        <label className="ConfigApp__field">
+          <span className="ConfigApp__field__label">
+            Notify when 10 seconds remain:
+          </span>
+          <div className="ConfigApp__field__row">
+            <input
+              type="checkbox"
+              className="ConfigApp__field__control
+                         ConfigApp__field__control--checkbox"
+              value="enabled"
+              checked={warnings[2].enabled || false}
+              onChange={this.handleSettingsToggle("warnings.2.enabled")}
+            />
+            <AudioSelector
+              onChange={this.handleSettingsChange("warnings.2.sound")}
+              onVolumeChange={this.handleSettingsChange("warnings.2.volume")}
+              value={warnings[2].sound}
+              volume={warnings[2].volume}
+            />
+          </div>
         </label>
       </div>
     );

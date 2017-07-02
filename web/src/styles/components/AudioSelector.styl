@@ -1,0 +1,19 @@
+.AudioSelector
+  &__row
+    display: flex
+    align-items: center
+  .AudioSelector__control
+    flex: 1
+  .AudioSelector__preview
+    width: 25px
+    height: 25px
+    border: 0
+    background: $fg
+    transition: border-color
+    overflow: hidden
+    text-indent: -9999px
+    margin-left: 5px
+    -webkit-mask: url("../../icons/chevron-right-circle.svg") no-repeat center / 20px 20px
+    cursor: pointer
+    &:hover
+      background: $fg-active

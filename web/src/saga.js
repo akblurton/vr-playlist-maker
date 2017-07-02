@@ -57,7 +57,10 @@ export function* processPlaylist() {
     ));
 
     let accumulator = 0; // Keep track of time spent so far
-    for (const [index, { sound, time }] of sortedWarnings.entries()) {
+    for (const [index, { sound, time, enabled }] of sortedWarnings.entries()) {
+      if (!enabled) {
+        continue;
+      }
       // Calculate time to wait
       const t = duration - time  - accumulator;
       if (t < 0) {
