@@ -2,6 +2,10 @@ const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const url = require("url");
 
+require("electron-debug")({
+  showDevTools: "undocked",
+});
+
 let win = null;
 const WINDOW_FRAME_WIDTH = 300;
 const WINDOW_FRAME_HEIGHT = 500;
@@ -27,13 +31,6 @@ function createWindow() {
     protocol: "file:",
     slashes: true,
   }));
-
-  // Open the DevTools.
-  if (process.env.NODE_ENV === "development") {
-    win.webContents.openDevTools({
-      mode: "detach",
-    });
-  }
 
   // Emitted when the window is closed.
   win.on("closed", () => {
