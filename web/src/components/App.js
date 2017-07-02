@@ -1,5 +1,7 @@
 import "styles/components/App.styl";
 
+import { ipcRenderer } from "electron";
+
 import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
@@ -37,6 +39,10 @@ class App extends React.Component {
     }
   }
 
+  handleShowConfig() {
+    ipcRenderer.send("SHOW_CONFIG_WINDOW");
+  }
+
   render() {
     const { running, playlist, current } = this.props;
     return (
@@ -51,6 +57,14 @@ class App extends React.Component {
           {running ? "Running (Stop)" : "Click to start"}
         </button>
         <Playlist items={playlist} current={current} />
+        <nav className="App__actions">
+          <button
+            className="App__actions__config"
+            onClick={this.handleShowConfig}
+          >
+            Config
+          </button>
+        </nav>
       </div>
     );
   }

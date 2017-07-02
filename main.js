@@ -1,17 +1,19 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const url = require("url");
 
 
 require("electron-debug")({
-  showDevTools: "undocked",
+  showDevTools: false,
 });
 
 require("./messages");
 
-let win = null;
+let mainWin = null, configWin = null;
 const WINDOW_FRAME_WIDTH = 300;
 const WINDOW_FRAME_HEIGHT = 500;
+const CONFIG_WINDOW_FRAME_WIDTH = 300;
+const CONFIG_WINDOW_FRAME_HEIGHT = 500;
 const WEB_ASSETS_DIR = path.join(__dirname, "web");
 
 const asset = file => path.join(WEB_ASSETS_DIR, file);
@@ -37,7 +39,7 @@ async function createWindow() {
   }
 
   // Create the browser window.
-  win = new BrowserWindow({
+  mainWin = new BrowserWindow({
     show: false,
     width: WINDOW_FRAME_WIDTH,
     height: WINDOW_FRAME_HEIGHT,
@@ -48,21 +50,49 @@ async function createWindow() {
     title: "VR Playlist Maker",
   });
 
-  win.once("ready-to-show", () => win.show());
+  configWin = new BrowserWindow({
+    parent: mainWin,
+    show: false,
+    width: CONFIG_WINDOW_FRAME_WIDTH,
+    height: CONFIG_WINDOW_FRAME_HEIGHT,
+    resizable: false,
+    maximizable: false,
+    fullscreen: false,
+    fullscreenable: false,
+    title: "Options",
+  });
+
+  mainWin.once("ready-to-show", () => mainWin.show());
+
+  ipcMain.on("SHOW_CONFIG_WINDOW", function() {
+    configWin.show();
+  });
 
   // and load the index.html of the app.
-  win.loadURL(url.format({
+  mainWin.loadURL(url.format({
     pathname: asset("index.html"),
     protocol: "file:",
     slashes: true,
   }));
 
+  configWin.loadURL(url.format({
+    pathname: asset("config.html"),
+    protocol: "file:",
+    slashes: true,
+  }));
+
+  configWin.on("close", function(e) {
+    e.preventDefault();
+    configWin.hide();
+    return false;
+  });
+
   // Emitted when the window is closed.
-  win.on("closed", () => {
+  mainWin.on("closed", () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    win = null;
+    mainWin = null;
   });
 }
 
