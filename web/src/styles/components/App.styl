@@ -1,0 +1,14 @@
+.App
+  background: #EEE
+  padding: 10px
+  &:empty
+    &::before
+      content: "Click to load processes"
+      display: block
+      text-align: center
+      cursor: pointer
+
+  pre
+    margin: 15px 0
+    border: 1px solid #CCC
+    background: #FAFAFA

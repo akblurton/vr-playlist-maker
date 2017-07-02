@@ -1,16 +1,20 @@
 {
   "name": "vr-playlist",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple interface to create VR app playlists",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./",
     "start": "NODE_ENV=development electron .",
-    "webpack": "webpack",
-    "webpack-server": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --hot --inline --quiet"
+    "webpack": "NODE_ENV=production webpack --progress",
+    "webpack-server": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --hot --inline --quiet",
+    "prepack": "yarn run webpack",
+    "predist": "yarn run webpack",
+    "pack": "NODE_ENV=production electron-builder --dir",
+    "dist": "NODE_ENV=production electron-builder"
   },
-  "author": "",
+  "author": "Ashley Blurton",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -24,7 +28,7 @@
     "clean-webpack-plugin": "^0.1.16",
     "devtron": "^1.4.0",
     "electron": "^1.6.11",
-    "electron-debug": "^1.2.0",
+    "electron-builder": "^19.11.1",
     "electron-devtools-installer": "^2.2.0",
     "eslint": "^4.1.1",
     "eslint-loader": "^1.8.0",
@@ -35,8 +39,11 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
+    "core-decorators": "^0.19.0",
     "css-loader": "^0.28.4",
+    "electron-debug": "^1.2.0",
     "prop-types": "^15.5.10",
+    "ps-node": "^0.1.6",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",

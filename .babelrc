@@ -3,12 +3,12 @@
     ["target", {
       "presets": [
         ["es2015", { "modules": false }],
-        "stage-0",
       ],
       "targets": [
         {"name": "chrome", "version": 56}
       ]
     }],
+    "stage-0",
     "react"
   ],
   "plugins": [

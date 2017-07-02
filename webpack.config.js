@@ -70,6 +70,7 @@ module.exports = function webpackConfig() {
     },
     plugins: [
       new CleanWebpackPlugin(distDir),
+      new webpack.EnvironmentPlugin(["NODE_ENV"]),
     ],
     devServer: {
       publicPath: "http://localhost:8888/",
