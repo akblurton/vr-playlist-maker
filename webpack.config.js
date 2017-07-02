@@ -11,13 +11,20 @@ module.exports = function webpackConfig() {
 
   const config = {
     target: "electron-renderer",
-    entry: [
-      "react-hot-loader/patch",
-      "babel-polyfill",
-      path.join(srcDir, "/app.js"),
-    ],
+    entry: {
+      app: [
+        "react-hot-loader/patch",
+        "babel-polyfill",
+        path.join(srcDir, "/app.js"),
+      ],
+      config: [
+        "react-hot-loader/patch",
+        "babel-polyfill",
+        path.join(srcDir, "/config.js"),
+      ],
+    },
     output: {
-      filename: "bundle.js",
+      filename: "[name].js",
       path: distDir,
       publicPath: "http://localhost:8888/",
     },

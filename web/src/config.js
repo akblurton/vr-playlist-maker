@@ -3,13 +3,12 @@ import "./styles/global.styl";
 import ReactDOM from "react-dom";
 import React from "react";
 
-import store from "store";
-import { setMaster } from "helpers/redux";
-
-setMaster(store);
+import { createChild } from "helpers/redux";
+import { INITIAL_STATE } from "reducer";
+const store = createChild(INITIAL_STATE);
 
 import { AppContainer } from "react-hot-loader";
-import App from "./components/App";
+import App from "./components/ConfigApp";
 import { Provider } from "react-redux";
 
 function render() {

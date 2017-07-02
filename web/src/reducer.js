@@ -8,7 +8,7 @@ import START from "../audio/speech/starting application-male.mp3";
 import END from "../audio/speech/playlist complete-male.mp3";
 /* eslint-enable max-len */
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   playback: {
     running: false,
     index: -1,

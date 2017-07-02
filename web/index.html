@@ -9,9 +9,9 @@
   <script>
 const script = document.createElement("script");
 if (process.env.NODE_ENV === "development") {
-  script.setAttribute("src", "http://localhost:8888/bundle.js");
+  script.setAttribute("src", "http://localhost:8888/app.js");
 } else {
-  script.setAttribute("src", "./dist/bundle.js");
+  script.setAttribute("src", "./dist/app.js");
 }
 document.body.appendChild(script);
   </script>
