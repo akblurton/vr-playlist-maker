@@ -3,6 +3,8 @@ import * as actions from "./actions";
 import KLAXON from "../audio/klaxon.wav";
 import BEEP from "../audio/beep.wav";
 import BOOP from "../audio/boop.wav";
+import START from "../audio/start.wav";
+import END from "../audio/end.wav";
 
 const INITIAL_STATE = {
   running: false,
@@ -13,7 +15,14 @@ const INITIAL_STATE = {
   ],
   config: {
     audioDevice: null,
-    startNotice: true,
+    startNotice: {
+      sound: START,
+      volume: 50,
+    },
+    endNotice: {
+      sound: END,
+      volume: 50,
+    },
     warnings: [
       { sound: BEEP, time: 3000 },
       { sound: BOOP, time: 1000 },

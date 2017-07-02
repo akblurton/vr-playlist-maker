@@ -6,7 +6,11 @@ import * as actions from "./actions";
 import { activePlaylist, config } from "./selectors";
 
 export async function buildAudioElements(sounds, device) {
-  return await Promise.all(sounds.map(async function({ sound }) {
+  return await Promise.all(sounds.map(async function(item) {
+    if (!item) {
+      return null;
+    }
+    const { sound, volume = 100 } = item;
     const audio = document.createElement("audio");
     if (device) {
       console.log("Setting audio device", device);
@@ -14,6 +18,7 @@ export async function buildAudioElements(sounds, device) {
       console.log("Audio device attached to", device);
     }
     audio.setAttribute("src", sound);
+    audio.volume = volume / 100;
     return audio;
   }));
 }
@@ -23,6 +28,7 @@ export function* processPlaylist() {
   const playlist = yield select(activePlaylist);
   const {
     startNotice = false,
+    endNotice = false,
     warnings = [],
     audioDevice = null,
   } = yield select(config);
@@ -31,13 +37,19 @@ export function* processPlaylist() {
     return;
   }
 
-  const sounds = yield call(buildAudioElements, warnings, audioDevice);
-
+  const warningSounds = yield call(buildAudioElements, warnings, audioDevice);
+  const [endSound] = yield call(
+    buildAudioElements, [endNotice], audioDevice
+  );
+  const [startSound] = yield call(
+    buildAudioElements, [startNotice], audioDevice
+  );
   for (const { exe, duration } of playlist) {
-    // Start process
     if (startNotice) {
-      console.log("START NOTICE");
+      yield call([startSound, startSound.play]);
     }
+
+    // Start process
     let pid = null;
     for (let i = 0; i < RETRIES; i++) {
       try {
@@ -67,9 +79,9 @@ export function* processPlaylist() {
       }
       accumulator += t;
       yield call(delay, t);
-      if (sounds[index]) {
+      if (warningSounds[index]) {
         try {
-          yield call([sounds[index], sounds[index].play]);
+          yield call([warningSounds[index], warningSounds[index].play]);
         } catch (e) {
           // Audio problem
           console.warn("Audio playback failed");
@@ -87,6 +99,9 @@ export function* processPlaylist() {
     console.log(
       "Playlist item complete in ", endedAt - startedAt, "target:", duration
     );
+  }
+  if (endNotice) {
+    yield call([endSound, endSound.play]);
   }
 }
 
