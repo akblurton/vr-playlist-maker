@@ -80,7 +80,7 @@ module.exports = function webpackConfig() {
           ],
         },
         {
-          test: /\.(mp3|wav)$/,
+          test: /\.(mp3|wav|svg)$/,
           use: [
             "file-loader",
           ],

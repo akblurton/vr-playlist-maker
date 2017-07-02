@@ -18,3 +18,15 @@ export const setCurrentIndex = index => ({
   type: SET_CURRENT_INDEX,
   index,
 });
+
+export const UPDATE_AUDIO_DEVICES = "UPDATE_AUDIO_DEVICES";
+export const updateAudioDevices = devices => ({
+  type: UPDATE_AUDIO_DEVICES,
+  devices,
+});
+
+export const SET_AUDIO_DEVICE = "SET_AUDIO_DEVICE";
+export const setAudioDevice = device => ({
+  type: SET_AUDIO_DEVICE,
+  device,
+});

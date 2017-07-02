@@ -7,6 +7,10 @@ import { createChild } from "helpers/redux";
 import { INITIAL_STATE } from "reducer";
 const store = createChild(INITIAL_STATE);
 
+if (module.hot) {
+  module.hot.accept("reducer", () => {});
+}
+
 import { AppContainer } from "react-hot-loader";
 import App from "./components/ConfigApp";
 import { Provider } from "react-redux";
@@ -24,5 +28,5 @@ function render() {
 
 render();
 if (module.hot) {
-  module.hot.accept("./components/App", render);
+  module.hot.accept("./components/ConfigApp", render);
 }

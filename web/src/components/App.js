@@ -59,8 +59,9 @@ class App extends React.Component {
         <Playlist items={playlist} current={current} />
         <nav className="App__actions">
           <button
-            className="App__actions__config"
+            className="App__actions__button App__actions__button--config"
             onClick={this.handleShowConfig}
+            title="Settings"
           >
             Config
           </button>

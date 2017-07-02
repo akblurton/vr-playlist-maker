@@ -19,12 +19,15 @@ export const INITIAL_STATE = {
     { exe: "knockout_league.exe", duration: 15000 },
   ],
   config: {
+    availableDevices: [],
     audioDevice: null,
     startNotice: {
+      enabled: true,
       sound: START,
       volume: 50,
     },
     endNotice: {
+      enabled: true,
       sound: END,
       volume: 50,
     },
@@ -61,6 +64,22 @@ export default function(state = INITIAL_STATE, action) {
           ...state.playback,
           running: false,
           index: -1,
+        },
+      };
+    case actions.SET_AUDIO_DEVICE:
+      return {
+        ...state,
+        config: {
+          ...state.config,
+          audioDevice: action.device,
+        },
+      };
+    case actions.UPDATE_AUDIO_DEVICES:
+      return {
+        ...state,
+        config: {
+          ...state.config,
+          availableDevices: action.devices,
         },
       };
     default:

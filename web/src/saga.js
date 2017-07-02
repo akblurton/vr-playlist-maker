@@ -3,25 +3,8 @@ import { delay } from "redux-saga";
 import { send } from "helpers/ipc";
 
 import * as actions from "./actions";
-import { activePlaylist, config } from "./selectors";
-
-export async function buildAudioElements(sounds, device) {
-  return await Promise.all(sounds.map(async function(item) {
-    if (!item) {
-      return null;
-    }
-    const { sound, volume = 100 } = item;
-    const audio = document.createElement("audio");
-    if (device) {
-      console.log("Setting audio device", device);
-      await audio.setSinkId(device);
-      console.log("Audio device attached to", device);
-    }
-    audio.setAttribute("src", sound);
-    audio.volume = volume / 100;
-    return audio;
-  }));
-}
+import { activePlaylist, config, audioDevice } from "./selectors";
+import { getAudioDevices, buildAudioElements } from "helpers/media";
 
 const RETRIES = 3;
 export function* processPlaylist() {
@@ -45,7 +28,7 @@ export function* processPlaylist() {
     buildAudioElements, [startNotice], audioDevice
   );
   for (const [index, { exe, duration }] of playlist.entries()) {
-    if (startNotice) {
+    if (startNotice.enabled) {
       yield call([startSound, startSound.play]);
     }
 
@@ -102,7 +85,7 @@ export function* processPlaylist() {
       "Playlist item complete in ", endedAt - startedAt, "target:", duration
     );
   }
-  if (endNotice) {
+  if (endNotice.enabled) {
     yield call([endSound, endSound.play]);
   }
 }
@@ -118,8 +101,32 @@ export function* startPlaylist() {
   }
 }
 
+// Look for the following in this order if default device has not yet been set
+const DEFAULT_AUDIO_CHOICE = [
+  "Rift Audio",
+  "HTC-VIVE-0",
+  "Default",
+];
+export function* bootstrap() {
+  const devices = yield call(getAudioDevices);
+  yield put(actions.updateAudioDevices(devices));
+  const currentDevice = yield select(audioDevice);
+  if (currentDevice === null) {
+    for (const lookup of DEFAULT_AUDIO_CHOICE) {
+      const found = devices.find(({ label }) => (
+        (label || "").toLowerCase() === lookup.toLowerCase()
+      ));
+      if (found) {
+        yield put(actions.setAudioDevice(found.deviceId));
+        break;
+      }
+    }
+  }
+}
+
 export default function*() {
   yield all([
+    call(bootstrap),
     call(startPlaylist),
   ]);
 }
