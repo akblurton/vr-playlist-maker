@@ -36,6 +36,32 @@ module.exports = function webpackConfig() {
             "babel-loader",
           ],
         },
+        {
+          test: /\.styl$/,
+          exclude: /node_modules/,
+          use: [
+            "style-loader",
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: isDev,
+              },
+            },
+            "stylus-loader",
+          ],
+        },
+        {
+          test: /\.css$/,
+          use: [
+            "style-loader",
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: isDev,
+              },
+            },
+          ],
+        },
       ],
     },
     resolve: {
