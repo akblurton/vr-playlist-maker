@@ -26,7 +26,7 @@ module.exports = function webpackConfig() {
     output: {
       filename: "[name].js",
       path: distDir,
-      publicPath: "http://localhost:8888/",
+      publicPath: isDev ? "http://localhost:8888/" : "./dist/",
     },
     module: {
       rules: [
