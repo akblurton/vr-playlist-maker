@@ -1,10 +1,12 @@
 import * as actions from "./actions";
 
-import KLAXON from "../audio/klaxon.wav";
-import BEEP from "../audio/beep.wav";
-import BOOP from "../audio/boop.wav";
-import START from "../audio/start.wav";
-import END from "../audio/end.wav";
+/* eslint-disable max-len */
+import SECONDS_10 from "../audio/speech/application closing in 10 seconds-male.mp3";
+import MINUTES_5 from "../audio/speech/application closing in 5 minutes-male.mp3";
+import MINUTES_1 from "../audio/speech/application closing in 1 minute-male.mp3";
+import START from "../audio/speech/starting application-male.mp3";
+import END from "../audio/speech/playlist complete-male.mp3";
+/* eslint-enable max-len */
 
 const INITIAL_STATE = {
   playback: {
@@ -12,9 +14,9 @@ const INITIAL_STATE = {
     index: -1,
   },
   playlist: [
-    { exe: "audioshield.exe", duration: 10000 },
-    { exe: "fruit_ninja.exe", duration: 5000 },
-    { exe: "knockout_league.exe", duration: 10000 },
+    { exe: "audioshield.exe", duration: 15000 },
+    { exe: "fruit_ninja.exe", duration: 15000 },
+    { exe: "knockout_league.exe", duration: 15000 },
   ],
   config: {
     audioDevice: null,
@@ -27,9 +29,9 @@ const INITIAL_STATE = {
       volume: 50,
     },
     warnings: [
-      { sound: BEEP, time: 3000, volume: 50 },
-      { sound: BOOP, time: 1000, volume: 50 },
-      { sound: KLAXON, time: 300, volume: 50 },
+      { sound: MINUTES_5, time: 12000, volume: 50 },
+      { sound: MINUTES_1, time: 8000, volume: 50 },
+      { sound: SECONDS_10, time: 4000, volume: 50 },
     ],
   },
 };

@@ -1,5 +1,5 @@
 {
-  "name": "vr-playlist",
+  "name": "vr-playlist-maker",
   "version": "1.0.0",
   "description": "A simple interface to create VR app playlists",
   "main": "main.js",
