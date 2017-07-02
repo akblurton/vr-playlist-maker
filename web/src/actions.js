@@ -12,3 +12,9 @@ export const PLAYLIST_COMPLETE = "PLAYLIST_COMPLETE";
 export const playlistComplete = () => ({
   type: PLAYLIST_COMPLETE,
 });
+
+export const SET_CURRENT_INDEX = "SET_CURRENT_INDEX";
+export const setCurrentIndex = index => ({
+  type: SET_CURRENT_INDEX,
+  index,
+});

@@ -13,6 +13,7 @@ module.exports = function webpackConfig() {
     target: "electron-renderer",
     entry: [
       "react-hot-loader/patch",
+      "babel-polyfill",
       path.join(srcDir, "/app.js"),
     ],
     output: {
@@ -48,7 +49,15 @@ module.exports = function webpackConfig() {
                 sourceMap: isDev,
               },
             },
-            "stylus-loader",
+            {
+              loader: "stylus-loader",
+              options: {
+                import: [
+                  // Include common variables
+                  path.join(srcDir, "styles/vars.styl"),
+                ],
+              },
+            },
           ],
         },
         {

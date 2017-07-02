@@ -44,10 +44,12 @@ export function* processPlaylist() {
   const [startSound] = yield call(
     buildAudioElements, [startNotice], audioDevice
   );
-  for (const { exe, duration } of playlist) {
+  for (const [index, { exe, duration }] of playlist.entries()) {
     if (startNotice) {
       yield call([startSound, startSound.play]);
     }
+
+    yield put(actions.setCurrentIndex(index));
 
     // Start process
     let pid = null;

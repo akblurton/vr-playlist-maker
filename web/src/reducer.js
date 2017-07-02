@@ -9,6 +9,7 @@ import END from "../audio/end.wav";
 const INITIAL_STATE = {
   playback: {
     running: false,
+    index: -1,
   },
   playlist: [
     { exe: "audioshield.exe", duration: 10000 },
@@ -26,9 +27,9 @@ const INITIAL_STATE = {
       volume: 50,
     },
     warnings: [
-      { sound: BEEP, time: 3000 },
-      { sound: BOOP, time: 1000 },
-      { sound: KLAXON, time: 300 },
+      { sound: BEEP, time: 3000, volume: 50 },
+      { sound: BOOP, time: 1000, volume: 50 },
+      { sound: KLAXON, time: 300, volume: 50 },
     ],
   },
 };
@@ -43,12 +44,21 @@ export default function(state = INITIAL_STATE, action) {
           running: true,
         },
       };
+    case actions.SET_CURRENT_INDEX:
+      return {
+        ...state,
+        playback: {
+          ...state.playback,
+          index: action.index,
+        },
+      };
     case actions.PLAYLIST_COMPLETE:
       return {
         ...state,
         playback: {
           ...state.playback,
           running: false,
+          index: -1,
         },
       };
     default:

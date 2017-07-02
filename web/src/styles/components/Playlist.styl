@@ -1,0 +1,29 @@
+.Playlist
+  height: calc(100vh - 50px)
+  overflow-y: scroll
+  &__item
+    overflow: hidden
+    line-height: 40px
+    font-size: 16px
+    padding: 0 100px 0 10px
+    border-bottom: 1px solid $border
+    transition: background-color 0.3s ease-in-out
+    list-style: decimal-leading-zero inside
+    position: relative
+    white-space: nowrap
+    text-overflow: ellipsis
+
+    &.is-active
+      background-color: $highlight
+
+    &__duration
+      position: absolute
+      font-style: italic
+      color: $secondary
+      font-size: 12px
+      top: 0
+      right: 0
+      bottom: 0
+      width: 100px
+      text-align: right
+      padding-right: 10px
