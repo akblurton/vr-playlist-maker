@@ -1,36 +1,34 @@
-import React from "react";
-import { autobind } from "core-decorators";
-import { send } from "helpers/ipc";
-
 import "styles/components/App.styl";
 
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
+import { startPlaylist } from "actions";
+
 class App extends React.Component {
+  static propTypes = {
+    start: PropTypes.func.isRequired,
+    running: PropTypes.bool.isRequired,
+  };
+
   state = {
     processes: [],
   };
 
-  @autobind
-  async handleIPC() {
-    const t1 = Date.now();
-    const response = await send("LIST_PROCESSES");
-    const t2 = Date.now();
-    this.setState({
-      processes: response,
-    });
-    console.log("Got response (", response, `after ${t2 - t1} milliseconds`);
-  }
-
-
   render() {
-    const { processes } = this.state;
+    const { start, running } = this.props;
     return (
-      <div className="App" onClick={this.handleIPC}>
-        {processes.map((p, index) => (
-          <pre key={index}>{JSON.stringify(p, null, 2)}</pre>
-        ))}
+      <div className="App" onClick={start}>
+        {running ? "Running" : "Click to start"}
       </div>
     );
   }
 }
 
-export default App;
+export { App };
+export default connect(state => ({
+  running: state.running,
+}), dispatch => ({
+  start: () => dispatch(startPlaylist()),
+}))(App);

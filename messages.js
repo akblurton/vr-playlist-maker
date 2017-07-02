@@ -13,3 +13,13 @@ listen("LIST_PROCESSES", function() {
     });
   });
 });
+
+listen("START_PROCESS", function(exe) {
+  console.log("Starting process", exe);
+  return true;
+});
+
+listen("KILL_PROCESS", function(pid) {
+  console.log("Killing process", pid);
+  return true;
+});
