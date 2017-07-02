@@ -7,6 +7,14 @@ const INITIAL_STATE = {
     { exe: "fruit_ninja.exe", duration: 5000 },
     { exe: "knockout_league.exe", duration: 10000 },
   ],
+  config: {
+    startNotice: true,
+    warnings: [
+      { sound: "beep.exe", time: 3000 },
+      { sound: "boop.exe", time: 1000 },
+      { sound: "klaxxon.exe", time: 300 },
+    ],
+  },
 };
 
 export default function(state = INITIAL_STATE, action) {
