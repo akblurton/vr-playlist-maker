@@ -49,3 +49,10 @@ export const removeFromPlaylist = index => ({
   type: REMOVE_FROM_PLAYLIST,
   index,
 });
+
+export const SET_PLAYLIST_ITEM_TIME = "SET_PLAYLIST_ITEM_TIME";
+export const setPlaylistItemTime = (index, time) => ({
+  type: SET_PLAYLIST_ITEM_TIME,
+  index,
+  time,
+});

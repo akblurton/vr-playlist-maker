@@ -37,5 +37,6 @@ listen("START_PROCESS", async function(exe) {
 
 listen("KILL_PROCESS", function(pid) {
   console.log("Killing process", pid);
+  process.kill(pid, 0);
   return true;
 });

@@ -119,6 +119,16 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         playlist: state.playlist.filter((_, i) => i !== action.index),
       };
+    case actions.SET_PLAYLIST_ITEM_TIME:
+      return {
+        ...state,
+        playlist: state.playlist.map((step, index) => (
+          index === action.index ? {
+            ...step,
+            duration: action.time,
+          } : step
+        )),
+      };
     default:
       return state;
   }

@@ -12,10 +12,17 @@ class PlaylistEditor extends React.Component {
       duration: PropTypes.number.isRequired,
     })),
     onRemove: PropTypes.func.isRequired,
+    onSetTime: PropTypes.func.isRequired,
   };
 
   handleRemove(index) {
     return () => this.props.onRemove(index);
+  }
+
+  handleSetTime(index) {
+    return ({ target: { value } }) => {
+      this.props.onSetTime(index, parseFloat(value, 10) * 60000);
+    };
   }
 
   render() {
@@ -43,6 +50,7 @@ class PlaylistEditor extends React.Component {
                   min={1}
                   max={1000}
                   value={item.duration / 60000}
+                  onChange={this.handleSetTime(index)}
                 />
               </label>
               <nav className="PlaylistEditor__item__actions">
