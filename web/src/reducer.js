@@ -12,9 +12,9 @@ export const INITIAL_STATE = {
     index: -1,
   },
   playlist: [
-    { exe: "audioshield.exe", duration: TEN_MINUTES },
-    { exe: "fruit_ninja.exe", duration: TEN_MINUTES },
-    { exe: "knockout_league.exe", duration: TEN_MINUTES },
+    { exe: "./example-processes/test1.sh", duration: TEN_MINUTES },
+    { exe: "./example-processes/test2.sh", duration: TEN_MINUTES },
+    { exe: "./example-processes/test3.sh", duration: TEN_MINUTES },
   ],
   config: {
     availableDevices: [],
@@ -113,6 +113,11 @@ export default function(state = INITIAL_STATE, action) {
             duration: TEN_MINUTES,
           },
         ],
+      };
+    case actions.REMOVE_FROM_PLAYLIST:
+      return {
+        ...state,
+        playlist: state.playlist.filter((_, i) => i !== action.index),
       };
     default:
       return state;

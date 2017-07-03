@@ -11,7 +11,12 @@ class PlaylistEditor extends React.Component {
       exe: PropTypes.string.isRequired,
       duration: PropTypes.number.isRequired,
     })),
+    onRemove: PropTypes.func.isRequired,
   };
+
+  handleRemove(index) {
+    return () => this.props.onRemove(index);
+  }
 
   render() {
     const { items } = this.props;
@@ -46,6 +51,7 @@ class PlaylistEditor extends React.Component {
                              PlaylistEditor__item__actions__button--remove"
                   type="button"
                   title="Remove"
+                  onClick={this.handleRemove(index)}
                 />
               </nav>
             </div>

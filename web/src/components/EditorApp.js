@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import ControlBar from "./ControlBar";
 import { activePlaylist } from "selectors";
-import { addToPlaylist } from "actions";
+import { addToPlaylist, removeFromPlaylist } from "actions";
 
 import PlaylistEditor from "components/PlaylistEditor";
 import { autobind } from "core-decorators";
@@ -18,6 +18,7 @@ class EditorApp extends React.Component {
       duration: PropTypes.number.isRequired,
     })),
     onAdd: PropTypes.func.isRequired,
+    onRemove: PropTypes.func.isRequired,
   };
 
   _fileInput = null;
@@ -49,11 +50,11 @@ class EditorApp extends React.Component {
   }
 
   render() {
-    const { playlist } = this.props;
+    const { playlist, onRemove } = this.props;
     return (
       <div className="EditorApp">
         <ControlBar minimize={false} title="Playlist Editor" />
-        <PlaylistEditor items={playlist} />
+        <PlaylistEditor items={playlist} onRemove={onRemove} />
         <input
           defaultValue=""
           type="file"
@@ -78,4 +79,5 @@ export default connect(state => ({
   playlist: activePlaylist(state),
 }), dispatch => ({
   onAdd: url => dispatch(addToPlaylist(url)),
+  onRemove: id => dispatch(removeFromPlaylist(id)),
 }))(EditorApp);
