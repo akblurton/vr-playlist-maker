@@ -1,7 +1,7 @@
 // IPC messaging listeners
 const { listen } = require("./ipc");
 const ps = require("ps-node");
-const { spawn } = require("child_process");
+const { spawn, exec } = require("child_process");
 const { dirname, resolve } = require("path");
 
 listen("LIST_PROCESSES", function() {
@@ -35,8 +35,13 @@ listen("START_PROCESS", async function(exe) {
   }
 });
 
+const os = require("os");
 listen("KILL_PROCESS", function(pid) {
   console.log("Killing process", pid);
-  process.kill(pid, 0);
+  if(os.platform() === "win32") {
+    exec(`taskkill /pid ${pid} /T /F`);
+  } else {
+    process.kill(pid, 0);
+  }
   return true;
 });

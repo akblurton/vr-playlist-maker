@@ -82,7 +82,14 @@ export function* processPlaylist() {
     // Wait for time to elapse
     yield call(delay, Math.max(0, duration - accumulator));
     // Kill process
-    yield call(send, "KILL_PROCESS", [pid]);
+    for (let i = 0; i < RETRIES; i++) {
+      try {
+        yield call(send, "KILL_PROCESS", [pid]);
+        break;
+      } catch (e) {
+        // ignore
+      }
+    }
 
     const endedAt = Date.now();
     console.log(
