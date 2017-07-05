@@ -1,4 +1,4 @@
-const { getInstalledApps, getAppDetails } = require("./lib/steam");
+const { getInstalledApps, getAppDetails, launchApp } = require("./lib/steam");
 
 async function doIt() {
   let apps;
@@ -12,6 +12,12 @@ async function doIt() {
   try {
     const details = await getAppDetails(apps);
     console.log(JSON.stringify(details, null, 2));
+
+    const kill = await launchApp(details[2]);
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    const response = await kill();
+    console.log(response);
+
   } catch (e) {
     console.error("my details!");
     console.error(e);
