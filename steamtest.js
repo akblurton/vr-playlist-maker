@@ -24,3 +24,6 @@ async function doIt() {
   }
 }
 doIt();
+
+//
+//  wmic Path win32_process Where "CommandLine Like '%legendofdungeon.exe%'" get ProcessId,name,commandline /format:list
