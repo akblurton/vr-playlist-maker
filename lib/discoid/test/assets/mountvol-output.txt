@@ -1,0 +1,49 @@
+Creates, deletes, or lists a volume mount point.
+
+MOUNTVOL [drive:]path VolumeName
+MOUNTVOL [drive:]path /D
+MOUNTVOL [drive:]path /L
+MOUNTVOL [drive:]path /P
+MOUNTVOL /R
+MOUNTVOL /N
+MOUNTVOL /E
+MOUNTVOL drive: /S
+
+    path        Specifies the existing NTFS directory where the mount
+                point will reside.
+    VolumeName  Specifies the volume name that is the target of the mount
+                point.
+    /D          Removes the volume mount point from the specified directory.
+    /L          Lists the mounted volume name for the specified directory.
+    /P          Removes the volume mount point from the specified directory,
+                dismounts the volume, and makes the volume not mountable.
+                You can make the volume mountable again by creating a volume
+                mount point.
+    /R          Removes volume mount point directories and registry settings
+                for volumes that are no longer in the system.
+    /N          Disables automatic mounting of new volumes.
+    /E          Re-enables automatic mounting of new volumes.
+    /S          Mount the EFI System Partition on the given drive.
+
+Possible values for VolumeName along with current mount points are:
+
+    \\?\Volume{6f35a39a-4c5d-4208-ba6e-aa8d2a2add96}\
+        C:\
+
+    \\?\Volume{4bc1ff8f-b037-4576-97bf-3719bd8c2f4d}\
+        D:\
+
+    \\?\Volume{a2f796bf-1728-11e5-8257-c48e8ff34a40}\
+        G:\
+
+    \\?\Volume{69d65142-e6bc-43dd-9fd1-274021f1cc15}\
+        *** NO MOUNT POINTS ***
+
+    \\?\Volume{a1e364ce-ba0b-4902-90f2-7ac8e28932dc}\
+        *** NO MOUNT POINTS ***
+
+    \\?\Volume{d9082c7e-c103-11e5-82cd-605718ebe2c1}\
+        *** NO MOUNT POINTS ***
+
+    \\?\Volume{b0357aa2-c106-11e5-82ce-605718ebe2c1}\
+The system cannot find the file specified.

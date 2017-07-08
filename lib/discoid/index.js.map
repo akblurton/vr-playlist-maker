@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/index.js"],"names":["module","exports","require"],"mappings":";;AAAA;;AACAA,OAAOC,OAAP,GAAiBC,QAAQ,eAAR,CAAjB","file":"index.js","sourcesContent":["import \"babel-polyfill\"\r\nmodule.exports = require('./lib/discoid');\r\n"]}

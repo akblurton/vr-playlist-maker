@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/example/index.js"],"names":["then","console","log","catch","error"],"mappings":";;AAAA;;AAEA,qBAAOA,IAAP,CAAYC,QAAQC,GAApB,EAAyBC,KAAzB,CAA+BF,QAAQG,KAAvC","file":"index.js","sourcesContent":["import { list } from '../lib/discoid'\r\n\r\nlist().then(console.log).catch(console.error)\r\n"]}
