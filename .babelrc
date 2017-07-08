@@ -1,6 +1,13 @@
 {
-  [
-    "es2015",
+  "presets": [
+    ["target", {
+      "presets": [
+        ["es2015", { "modules": false }],
+      ],
+      "targets": [
+        {"name": "chrome", "version": 56}
+      ]
+    }],
     "stage-0",
     "react"
   ],
