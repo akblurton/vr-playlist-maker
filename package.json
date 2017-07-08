@@ -45,8 +45,10 @@
     "core-decorators": "^0.19.0",
     "css-loader": "^0.28.4",
     "deepclone": "^1.0.2",
+    "discoid": "^0.1.4",
     "electron-debug": "^1.2.0",
     "file-loader": "^0.11.2",
+    "node-process-windows": "^0.0.2",
     "object-path": "^0.11.4",
     "prop-types": "^15.5.10",
     "ps-node": "^0.1.6",
@@ -62,6 +64,7 @@
     "style-loader": "^0.18.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
+    "taskkill": "^2.0.0",
     "uuid": "^3.1.0",
     "vdf": "^0.0.2",
     "winreg": "^1.2.4"
