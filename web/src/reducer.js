@@ -37,19 +37,19 @@ export const INITIAL_STATE = {
     warnings: [
       {
         sound: audioClips.speech.male.application_closing_in_5_minutes.value,
-        time: 12000,
+        time: TEN_MINUTES / 2,
         volume: 50,
         enabled: true,
       },
       {
         sound: audioClips.speech.male.application_closing_in_1_minute.value,
-        time: 8000,
+        time: TEN_MINUTES / 10,
         volume: 50,
         enabled: true,
       },
       {
         sound: audioClips.speech.male.application_closing_in_10_seconds.value,
-        time: 4000,
+        time: 10000,
         volume: 50,
         enabled: true,
       },

@@ -77,7 +77,7 @@ async function createWindow() {
     editorWin = new BrowserWindow({
       parent: mainWin,
       show: false,
-      width: CONFIG_WINDOW_FRAME_WIDTH,
+      width: CONFIG_WINDOW_FRAME_WIDTH + 120,
       height: CONFIG_WINDOW_FRAME_HEIGHT,
       resizable: false,
       maximizable: false,

@@ -15,6 +15,7 @@ class OculusLibrary extends React.Component {
       icon: PropTypes.string.isRequired,
       id: PropTypes.string,
       exe: PropTypes.string,
+      title: PropTypes.string,
     })),
     onSelect: PropTypes.func,
     load: PropTypes.func,
@@ -32,6 +33,13 @@ class OculusLibrary extends React.Component {
 
   render() {
     const { loading, apps, onSelect } = this.props;
+    if (loading) {
+      return (
+        <div className="OculusLibrary">
+          Loading...
+        </div>
+      );
+    }
     return (
       <ul
         className={cn("OculusLibrary", {
@@ -52,8 +60,12 @@ class OculusLibrary extends React.Component {
           >
             <img
               src={asURL(app.icon, { resolve: false })}
-              alt={app.installDir.split(/[\\/]/).slice(-1)[0]}
+              alt={app.title || app.installDir.split(/[\\/]/).slice(-1)[0]}
+              title={app.title || app.installDir.split(/[\\/]/).slice(-1)[0]}
             />
+            <h3 className="OculusLibrary__app__title">
+              {app.title}
+            </h3>
           </li>
         ))}
       </ul>
