@@ -12,6 +12,7 @@ import {
 
 import PlaylistEditor from "components/PlaylistEditor";
 import OculusLibrary from "components/OculusLibrary";
+import SteamLibrary from "components/SteamLibrary";
 import { autobind } from "core-decorators";
 
 class EditorApp extends React.Component {
@@ -29,6 +30,7 @@ class EditorApp extends React.Component {
   state = {
     selectorOpen: false,
     oculusSelectorOpen: false,
+    steamSelectorOpen: false,
   };
 
   @autobind
@@ -41,6 +43,7 @@ class EditorApp extends React.Component {
     this.setState({
       selectorOpen: !this.state.selectorOpen,
       oculusSelectorOpen: false,
+      steamSelectorOpen: false,
     });
   }
 
@@ -52,6 +55,7 @@ class EditorApp extends React.Component {
     this.setState({
       selectorOpen: false,
       oculusSelectorOpen: false,
+      steamSelectorOpen: false,
     });
   }
 
@@ -60,6 +64,7 @@ class EditorApp extends React.Component {
     this.setState({
       selectorOpen: false,
       oculusSelectorOpen: true,
+      steamSelectorOpen: false,
     });
   }
 
@@ -68,6 +73,7 @@ class EditorApp extends React.Component {
     this.setState({
       selectorOpen: false,
       oculusSelectorOpen: false,
+      steamSelectorOpen: true,
     });
   }
 
@@ -86,19 +92,30 @@ class EditorApp extends React.Component {
   }
 
   @autobind
-  handleOculuSelect(exe) {
+  handleOculusSelect(exe, name, icon) {
     this.setState({
       oculusSelectorOpen: false,
     });
     if (exe === null) {
       return;
     }
-    this.props.onAdd(exe);
+    this.props.onAdd(exe, name, icon);
+  }
+
+  @autobind
+  handleSteamSelect(exe, name, icon) {
+    this.setState({
+      steamSelectorOpen: false,
+    });
+    if (exe === null) {
+      return;
+    }
+    this.props.onAdd(exe, name, icon, "steam");
   }
 
   render() {
     const { playlist, onRemove, onSetTime } = this.props;
-    const { selectorOpen, oculusSelectorOpen } = this.state;
+    const { selectorOpen, oculusSelectorOpen, steamSelectorOpen } = this.state;
     return (
       <div className="EditorApp">
         <ControlBar minimize={false} title="Playlist Editor" />
@@ -139,7 +156,6 @@ class EditorApp extends React.Component {
             </button>
           </nav>
         )}
-        {}
         <button
           className="EditorApp__add"
           type="button"
@@ -148,7 +164,10 @@ class EditorApp extends React.Component {
           Add
         </button>
         {oculusSelectorOpen && (
-          <OculusLibrary onSelect={this.handleOculuSelect} />
+          <OculusLibrary onSelect={this.handleOculusSelect} />
+        )}
+        {steamSelectorOpen && (
+          <SteamLibrary onSelect={this.handleSteamSelect} />
         )}
       </div>
     );
@@ -159,7 +178,7 @@ export { EditorApp };
 export default connect(state => ({
   playlist: activePlaylist(state),
 }), dispatch => ({
-  onAdd: url => dispatch(addToPlaylist(url)),
+  onAdd: (url, name, icon, type) => dispatch(addToPlaylist(url, name, icon, type)),
   onRemove: id => dispatch(removeFromPlaylist(id)),
   onSetTime: (id, time) => dispatch(setPlaylistItemTime(id, time)),
 }))(EditorApp);

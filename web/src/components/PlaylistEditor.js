@@ -35,8 +35,11 @@ class PlaylistEditor extends React.Component {
             key={index}
           >
             <div className="PlaylistEditor__item__row">
-              <h2 className="PlaylistEditor__item__title" title={item.exe}>
-                {executable(item.exe)}
+              <h2 
+                className="PlaylistEditor__item__title"
+                title={item.name || item.exe}
+              >
+                {item.name || executable(item.exe)}
               </h2>
             </div>
             <div className="PlaylistEditor__item__row">

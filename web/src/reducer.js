@@ -11,6 +11,10 @@ export const INITIAL_STATE = {
     apps: [],
     loading: false,
   },
+  steam: {
+    apps: [],
+    loading: false,
+  },
   playback: {
     running: false,
     index: -1,
@@ -115,6 +119,9 @@ export default function(state = INITIAL_STATE, action) {
           ...state.playlist, {
             exe: action.exe,
             duration: TEN_MINUTES,
+            name: action.name,
+            icon: action.icon,
+            type: action.exeType,
           },
         ],
       };
@@ -147,6 +154,24 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         oculus: {
           ...state.oculus,
+          apps: action.apps,
+          loading: false,
+        },
+      };
+    case actions.LOAD_STEAM_LIBRARY:
+      return {
+        ...state,
+        steam: {
+          ...state.steam,
+          apps: [],
+          loading: true,
+        },
+      };
+    case actions.LOAD_STEAM_LIBRARY_COMPLETE:
+      return {
+        ...state,
+        steam: {
+          ...state.steam,
           apps: action.apps,
           loading: false,
         },

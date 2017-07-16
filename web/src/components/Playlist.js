@@ -43,9 +43,9 @@ class Playlist extends React.Component {
             })}
             key={index}
             ref={current === index ? this.setActive : null}
-            title={item.exe}
+            title={item.name || item.exe}
           >
-            {executable(item.exe)}
+            {item.name || executable(item.exe)}
             <time className="Playlist__item__duration">
               {time(item.duration)}
             </time>

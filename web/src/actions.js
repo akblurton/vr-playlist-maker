@@ -39,9 +39,12 @@ export const setConfigOption = (key, value) => ({
 });
 
 export const ADD_TO_PLAYLIST = "ADD_TO_PLAYLIST";
-export const addToPlaylist = exe => ({
+export const addToPlaylist = (exe, name, icon, type) => ({
   type: ADD_TO_PLAYLIST,
+  name,
+  icon,
   exe,
+  exeType: type,
 });
 
 export const REMOVE_FROM_PLAYLIST = "REMOVE_FROM_PLAYLIST";
@@ -68,6 +71,22 @@ export const LOAD_OCULUS_LIBRARY_COMPLETE = "LOAD_OCULUS_LIBRARY_COMPLETE";
 export function loadOculusLibraryComplete(apps) {
   return {
     type: LOAD_OCULUS_LIBRARY_COMPLETE,
+    apps,
+  };
+}
+
+
+export const LOAD_STEAM_LIBRARY = "LOAD_STEAM_LIBRARY";
+export function loadSteamLibrary() {
+  return {
+    type: LOAD_STEAM_LIBRARY,
+  };
+}
+
+export const LOAD_STEAM_LIBRARY_COMPLETE = "LOAD_STEAM_LIBRARY_COMPLETE";
+export function loadSteamLibraryComplete(apps) {
+  return {
+    type: LOAD_STEAM_LIBRARY_COMPLETE,
     apps,
   };
 }

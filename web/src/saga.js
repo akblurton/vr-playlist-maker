@@ -8,9 +8,6 @@ import * as actions from "./actions";
 import { activePlaylist, config, audioDevice } from "./selectors";
 import { getAudioDevices, buildAudioElements } from "helpers/media";
 
-import asURL from "file-url";
-
-
 const RETRIES = 3;
 export function* processPlaylist() {
   const playlist = yield select(activePlaylist);
@@ -33,7 +30,7 @@ export function* processPlaylist() {
   const [startSound] = yield call(
     buildAudioElements, [startNotice], audioDevice
   );
-  for (const [index, { exe, duration }] of playlist.entries()) {
+  for (const [index, { exe, duration, type }] of playlist.entries()) {
     if (startNotice.enabled) {
       yield call([startSound, startSound.play]);
     }
@@ -44,7 +41,8 @@ export function* processPlaylist() {
     let pid = null;
     for (let i = 0; i < RETRIES; i++) {
       try {
-        pid = yield call(send, "START_PROCESS", [exe]);
+        const msg = type === "steam" ? "START_STEAM_PROCESS" : "START_PROCESS";
+        pid = yield call(send, msg, [exe]);
         break;
       } catch (e) {
         // ignore and try again
@@ -89,7 +87,8 @@ export function* processPlaylist() {
     // Kill process
     for (let i = 0; i < RETRIES; i++) {
       try {
-        yield call(send, "KILL_PROCESS", [pid]);
+        const msg = type === "steam" ? "KILL_STEAM_PROCESS" : "KILL_PROCESS";
+        yield call(send, msg, [pid]);
         break;
       } catch (e) {
         // ignore
@@ -147,12 +146,16 @@ export function* bootstrap() {
 export function* loadOculusLibrary() {
   try {
     const oculusGames = yield call(send, "GET_OCULUS_LIBRARY");
-    for (const v of Object.values(oculusGames[0])) {
-      if (typeof v === "string") {
-        console.log(asURL(v, { resolve: false }));
-      }
-    }
     yield put(actions.loadOculusLibraryComplete(oculusGames));
+  } catch (e) {
+    // Ignore
+  }
+}
+
+export function* loadSteamLibrary() {
+  try {
+    const steamGames = yield call(send, "GET_STEAM_LIBRARY");
+    yield put(actions.loadSteamLibraryComplete(steamGames));
   } catch (e) {
     // Ignore
   }
@@ -163,5 +166,6 @@ export default function*() {
     call(bootstrap),
     call(startPlaylist),
     takeLatest(actions.LOAD_OCULUS_LIBRARY, loadOculusLibrary),
+    takeLatest(actions.LOAD_STEAM_LIBRARY, loadSteamLibrary),
   ]);
 }

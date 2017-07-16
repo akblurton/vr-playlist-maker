@@ -5,7 +5,7 @@ const { spawn, exec } = require("child_process");
 const { dirname, resolve } = require("path");
 const oculus = require("./lib/oculus");
 const steam = require("./lib/steam");
-
+const uuid = require("uuid/v4");
 listen("LIST_PROCESSES", function() {
   return new Promise((resolve, reject) => {
     ps.lookup({}, function(err, list) {
@@ -64,6 +64,28 @@ listen("KILL_PROCESS", function(pid) {
   });
 
   listen("GET_STEAM_LIBRARY", async function() {
-    return await steam.getInstalledApps();
+    const apps = await steam.getInstalledApps();
+    return await steam.getAppDetails(apps);
   });
+
+  const steamProcesses = {};
+  listen("START_STEAM_PROCESS", async function(app) {
+    const killIt = await steam.launchApp(app, true);
+    const uid = uuid();
+    steamProcesses[uid] = killIt;
+    return uid;
+  })
+
+  listen("KILL_STEAM_PROCESS", async function(uid) {
+    if (uid in steamProcesses) {
+      try {
+        await steamProcesses[uid]();
+      } catch (e) {
+        console.log("Could not kill process", e);
+      }
+    }
+    console.error("Could not find steam process");
+  });
+
+
 })();
