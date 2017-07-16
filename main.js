@@ -2,6 +2,8 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const url = require("url");
 
+const { getApplicationPaths: getOculusPaths } = require("./lib/oculus");
+const { getApplicationPaths: getSteamPaths } = require("./lib/steam");
 
 require("electron-debug")({
   showDevTools: false,
@@ -34,95 +36,106 @@ function installExtensions() {
 
 
 async function createWindow() {
-  if (process.env.NODE_ENV === "development") {
-    await installExtensions();
+  try {
+    if (process.env.NODE_ENV === "development") {
+      await installExtensions();
+    }
+
+    // Get Steam and Oculus paths
+    const steamPaths = await getSteamPaths();
+    const oculusPaths = await getOculusPaths();
+
+    console.log("Steam Paths", steamPaths);
+    console.log("Oculus Paths", oculusPaths);
+
+    // Create the browser window.
+    mainWin = new BrowserWindow({
+      show: false,
+      width: WINDOW_FRAME_WIDTH,
+      height: WINDOW_FRAME_HEIGHT,
+      resizable: false,
+      maximizable: false,
+      fullscreen: false,
+      fullscreenable: false,
+      title: "VR Playlist Maker",
+      frame: false,
+    });
+
+    configWin = new BrowserWindow({
+      parent: mainWin,
+      show: false,
+      width: CONFIG_WINDOW_FRAME_WIDTH,
+      height: CONFIG_WINDOW_FRAME_HEIGHT,
+      resizable: false,
+      maximizable: false,
+      fullscreen: false,
+      fullscreenable: false,
+      title: "Options",
+      frame: false,
+    });
+
+    editorWin = new BrowserWindow({
+      parent: mainWin,
+      show: false,
+      width: CONFIG_WINDOW_FRAME_WIDTH,
+      height: CONFIG_WINDOW_FRAME_HEIGHT,
+      resizable: false,
+      maximizable: false,
+      fullscreen: false,
+      fullscreenable: false,
+      title: "Playlist Editor",
+      frame: false,
+    });
+
+    mainWin.once("ready-to-show", () => mainWin.show());
+
+    ipcMain.on("SHOW_CONFIG_WINDOW", function() {
+      configWin.show();
+    });
+    ipcMain.on("SHOW_EDITOR_WINDOW", function() {
+      editorWin.show();
+    });
+
+    // and load the index.html of the app.
+    mainWin.loadURL(url.format({
+      pathname: asset("index.html"),
+      protocol: "file:",
+      slashes: true,
+    }));
+
+    configWin.loadURL(url.format({
+      pathname: asset("config.html"),
+      protocol: "file:",
+      slashes: true,
+    }));
+
+    editorWin.loadURL(url.format({
+      pathname: asset("editor.html"),
+      protocol: "file:",
+      slashes: true,
+    }));
+
+    configWin.on("close", function(e) {
+      e.preventDefault();
+      configWin.hide();
+      return false;
+    });
+    editorWin.on("close", function(e) {
+      e.preventDefault();
+      editorWin.hide();
+      return false;
+    });
+
+    // Emitted when the window is closed.
+    mainWin.on("closed", () => {
+      // Dereference the window object, usually you would store windows
+      // in an array if your app supports multi windows, this is the time
+      // when you should delete the corresponding element.
+      mainWin = null;
+    });
+  } catch (e) {
+    console.error(e);
   }
-
-  // Create the browser window.
-  mainWin = new BrowserWindow({
-    show: false,
-    width: WINDOW_FRAME_WIDTH,
-    height: WINDOW_FRAME_HEIGHT,
-    resizable: false,
-    maximizable: false,
-    fullscreen: false,
-    fullscreenable: false,
-    title: "VR Playlist Maker",
-    frame: false,
-  });
-
-  configWin = new BrowserWindow({
-    parent: mainWin,
-    show: false,
-    width: CONFIG_WINDOW_FRAME_WIDTH,
-    height: CONFIG_WINDOW_FRAME_HEIGHT,
-    resizable: false,
-    maximizable: false,
-    fullscreen: false,
-    fullscreenable: false,
-    title: "Options",
-    frame: false,
-  });
-
-  editorWin = new BrowserWindow({
-    parent: mainWin,
-    show: false,
-    width: CONFIG_WINDOW_FRAME_WIDTH,
-    height: CONFIG_WINDOW_FRAME_HEIGHT,
-    resizable: false,
-    maximizable: false,
-    fullscreen: false,
-    fullscreenable: false,
-    title: "Playlist Editor",
-    frame: false,
-  });
-
-  mainWin.once("ready-to-show", () => mainWin.show());
-
-  ipcMain.on("SHOW_CONFIG_WINDOW", function() {
-    configWin.show();
-  });
-  ipcMain.on("SHOW_EDITOR_WINDOW", function() {
-    editorWin.show();
-  });
-
-  // and load the index.html of the app.
-  mainWin.loadURL(url.format({
-    pathname: asset("index.html"),
-    protocol: "file:",
-    slashes: true,
-  }));
-
-  configWin.loadURL(url.format({
-    pathname: asset("config.html"),
-    protocol: "file:",
-    slashes: true,
-  }));
-
-  editorWin.loadURL(url.format({
-    pathname: asset("editor.html"),
-    protocol: "file:",
-    slashes: true,
-  }));
-
-  configWin.on("close", function(e) {
-    e.preventDefault();
-    configWin.hide();
-    return false;
-  });
-  editorWin.on("close", function(e) {
-    e.preventDefault();
-    editorWin.hide();
-    return false;
-  });
-
-  // Emitted when the window is closed.
-  mainWin.on("closed", () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWin = null;
-  });
 }
 
 app.on("ready", createWindow);

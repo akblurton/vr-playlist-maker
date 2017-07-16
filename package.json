@@ -65,6 +65,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "taskkill": "^2.0.0",
+    "util.promisify": "^1.0.0",
     "uuid": "^3.1.0",
     "vdf": "^0.0.2",
     "winreg": "^1.2.4"
