@@ -7,6 +7,10 @@ import audioClips from "assets";
 const TEN_MINUTES = 1000 * 60 * 10;
 
 export const INITIAL_STATE = {
+  oculus: {
+    apps: [],
+    loading: false,
+  },
   playback: {
     running: false,
     index: -1,
@@ -128,6 +132,24 @@ export default function(state = INITIAL_STATE, action) {
             duration: action.time,
           } : step
         )),
+      };
+    case actions.LOAD_OCULUS_LIBRARY:
+      return {
+        ...state,
+        oculus: {
+          ...state.oculus,
+          apps: [],
+          loading: true,
+        },
+      };
+    case actions.LOAD_OCULUS_LIBRARY_COMPLETE:
+      return {
+        ...state,
+        oculus: {
+          ...state.oculus,
+          apps: action.apps,
+          loading: false,
+        },
       };
     default:
       return state;

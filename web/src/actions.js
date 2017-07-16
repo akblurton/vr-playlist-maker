@@ -56,3 +56,18 @@ export const setPlaylistItemTime = (index, time) => ({
   index,
   time,
 });
+
+export const LOAD_OCULUS_LIBRARY = "LOAD_OCULUS_LIBRARY";
+export function loadOculusLibrary() {
+  return {
+    type: LOAD_OCULUS_LIBRARY,
+  };
+}
+
+export const LOAD_OCULUS_LIBRARY_COMPLETE = "LOAD_OCULUS_LIBRARY_COMPLETE";
+export function loadOculusLibraryComplete(apps) {
+  return {
+    type: LOAD_OCULUS_LIBRARY_COMPLETE,
+    apps,
+  };
+}

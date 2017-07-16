@@ -1,5 +1,6 @@
 .EditorApp
   padding-top: 25px
+  position: relative
 
   &__add
     width: 100%
@@ -12,8 +13,37 @@
     transition: background-color 0.2s ease-in-out
     text-transform: uppercase
     font-family: $font
+    position: relative
+    z-index: 2
     &:hover
       background: $active-hover
+
+  &__selector
+    position: absolute
+    bottom: 50px
+    width: 100%
+    left: 0
+    background: #FAFAFA
+    padding: 10px
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3)
+    animation: slide-up 0.3s ease
+    will-change: transform
+
+    &__option
+      display: block
+      background: transparent
+      height: 40px
+      border: 0
+      font-size: 15px
+      color: #222
+      width: 100%
+      border-bottom: 1px solid #EEE
+      cursor: pointer
+      transition: color 0.3s ease-in-out
+      &:hover
+        color: #666
+      &:last-child
+        border-bottom: 0;
 
   &__file
     visibility: hidden
@@ -22,3 +52,10 @@
     height: 0
     top: -1000px
     left: -1000px
+
+@keyframes slide-up
+  0%
+    transform: translateY(100%)
+  100%
+    transform: translateY(0%)
+

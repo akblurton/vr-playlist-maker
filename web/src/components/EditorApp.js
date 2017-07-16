@@ -11,6 +11,7 @@ import {
 } from "actions";
 
 import PlaylistEditor from "components/PlaylistEditor";
+import OculusLibrary from "components/OculusLibrary";
 import { autobind } from "core-decorators";
 
 class EditorApp extends React.Component {
@@ -25,6 +26,10 @@ class EditorApp extends React.Component {
   };
 
   _fileInput = null;
+  state = {
+    selectorOpen: false,
+    oculusSelectorOpen: false,
+  };
 
   @autobind
   bindPicker(ref) {
@@ -33,9 +38,37 @@ class EditorApp extends React.Component {
 
   @autobind
   handleAdd() {
+    this.setState({
+      selectorOpen: !this.state.selectorOpen,
+      oculusSelectorOpen: false,
+    });
+  }
+
+  @autobind
+  handleFileBrowse() {
     if (this._fileInput) {
       this._fileInput.click();
     }
+    this.setState({
+      selectorOpen: false,
+      oculusSelectorOpen: false,
+    });
+  }
+
+  @autobind
+  handleOculusBrowse() {
+    this.setState({
+      selectorOpen: false,
+      oculusSelectorOpen: true,
+    });
+  }
+
+  @autobind
+  handleSteamBrowse() {
+    this.setState({
+      selectorOpen: false,
+      oculusSelectorOpen: false,
+    });
   }
 
   @autobind
@@ -52,8 +85,20 @@ class EditorApp extends React.Component {
     this.props.onAdd(file.path);
   }
 
+  @autobind
+  handleOculuSelect(exe) {
+    this.setState({
+      oculusSelectorOpen: false,
+    });
+    if (exe === null) {
+      return;
+    }
+    this.props.onAdd(exe);
+  }
+
   render() {
     const { playlist, onRemove, onSetTime } = this.props;
+    const { selectorOpen, oculusSelectorOpen } = this.state;
     return (
       <div className="EditorApp">
         <ControlBar minimize={false} title="Playlist Editor" />
@@ -69,6 +114,32 @@ class EditorApp extends React.Component {
           ref={this.bindPicker}
           onChange={this.handleFilePicked}
         />
+        {selectorOpen && (
+          <nav className="EditorApp__selector">
+            <button
+              className="EditorApp__selector__option
+                         EditorApp__selector__option--file"
+              onClick={this.handleFileBrowse}
+            >
+              Browse for .exe
+            </button>
+            <button
+              className="EditorApp__selector__option
+                         EditorApp__selector__option--oculus"
+              onClick={this.handleOculusBrowse}
+            >
+              Search Oculus Library
+            </button>
+            <button
+              className="EditorApp__selector__option
+                         EditorApp__selector__option--steam"
+              onClick={this.handleSteamBrowse}
+            >
+              Search Steam Library
+            </button>
+          </nav>
+        )}
+        {}
         <button
           className="EditorApp__add"
           type="button"
@@ -76,6 +147,9 @@ class EditorApp extends React.Component {
         >
           Add
         </button>
+        {oculusSelectorOpen && (
+          <OculusLibrary onSelect={this.handleOculuSelect} />
+        )}
       </div>
     );
   }

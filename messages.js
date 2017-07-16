@@ -3,6 +3,8 @@ const { listen } = require("./ipc");
 const ps = require("ps-node");
 const { spawn, exec } = require("child_process");
 const { dirname, resolve } = require("path");
+const oculus = require("./lib/oculus");
+const steam = require("./lib/steam");
 
 listen("LIST_PROCESSES", function() {
   return new Promise((resolve, reject) => {
@@ -45,3 +47,23 @@ listen("KILL_PROCESS", function(pid) {
   }
   return true;
 });
+
+
+(async function() {
+  // Get Steam and Oculus paths
+  const steamPaths = await steam.getApplicationPaths();
+  const steamLibrary = await steam.getLibraryPaths();
+  const oculusLibrary = await oculus.getApplicationPaths();
+
+  console.log("Steam Paths", steamPaths);
+  console.log("Steam Libraries", steamLibrary);
+  console.log("Oculus Libraries", oculusLibrary);
+
+  listen("GET_OCULUS_LIBRARY", async function() {
+    return await oculus.getInstalledApps();
+  });
+
+  listen("GET_STEAM_LIBRARY", async function() {
+    return await steam.getInstalledApps();
+  });
+})();

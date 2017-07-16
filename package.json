@@ -48,6 +48,7 @@
     "discoid": "^0.1.4",
     "electron-debug": "^1.2.0",
     "file-loader": "^0.11.2",
+    "file-url": "^2.0.2",
     "node-process-windows": "^0.0.2",
     "object-path": "^0.11.4",
     "prop-types": "^15.5.10",

@@ -1,10 +1,15 @@
-import { all, take, race, call, select, put } from "redux-saga/effects";
+import {
+  all, take, race, call, select, put, takeLatest,
+} from "redux-saga/effects";
 import { delay } from "redux-saga";
 import { send } from "helpers/ipc";
 
 import * as actions from "./actions";
 import { activePlaylist, config, audioDevice } from "./selectors";
 import { getAudioDevices, buildAudioElements } from "helpers/media";
+
+import asURL from "file-url";
+
 
 const RETRIES = 3;
 export function* processPlaylist() {
@@ -139,9 +144,24 @@ export function* bootstrap() {
   }
 }
 
+export function* loadOculusLibrary() {
+  try {
+    const oculusGames = yield call(send, "GET_OCULUS_LIBRARY");
+    for (const v of Object.values(oculusGames[0])) {
+      if (typeof v === "string") {
+        console.log(asURL(v, { resolve: false }));
+      }
+    }
+    yield put(actions.loadOculusLibraryComplete(oculusGames));
+  } catch (e) {
+    // Ignore
+  }
+}
+
 export default function*() {
   yield all([
     call(bootstrap),
     call(startPlaylist),
+    takeLatest(actions.LOAD_OCULUS_LIBRARY, loadOculusLibrary),
   ]);
 }
