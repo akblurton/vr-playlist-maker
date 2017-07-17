@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import asURL from "file-url";
 import { loadOculusLibrary } from "actions";
 import Thumbnail from "./Thumbnail";
+import { autobind } from "core-decorators";
 
 class OculusLibrary extends React.Component {
   static propTypes = {
@@ -28,41 +29,64 @@ class OculusLibrary extends React.Component {
     load: () => {},
   };
 
+  state = {
+    filter: "",
+  };
+
   componentWillMount() {
     this.props.load();
   }
 
+  @autobind
+  handleFilterChange({ target: { value } }) {
+    this.setState({
+      filter: value,
+    });
+  }
+
   render() {
     const { loading, apps, onSelect } = this.props;
+    const { filter } = this.state;
     return (
-      <ul
-        className={cn("OculusLibrary", {
-          "is-loading": loading,
-        })}
-      >
-        <li
-          className="OculusLibrary__app"
-          onClick={() => onSelect(null)}
+      <div className="OculusLibrary">
+        <input
+          type="text"
+          className="OculusLibrary__filter"
+          value={filter}
+          onChange={this.handleFilterChange}
+          placeholder="Filter apps"
+        />
+        <ul
+          className={cn("OculusLibrary__list", {
+            "is-loading": loading,
+          })}
         >
-          Cancel
-        </li>
-        {apps.map(app => (
           <li
             className="OculusLibrary__app"
-            key={app.id}
-            onClick={() => onSelect(app.exe, app.title, app.icon)}
+            onClick={() => onSelect(null)}
           >
-            <Thumbnail
-              src={asURL(app.icon, { resolve: false })}
-              alt={app.title || app.installDir.split(/[\\/]/).slice(-1)[0]}
-              title={app.title || app.installDir.split(/[\\/]/).slice(-1)[0]}
-            />
-            <h3 className="OculusLibrary__app__title">
-              {app.title}
-            </h3>
+            Cancel
           </li>
-        ))}
-      </ul>
+          {apps.filter(app => (
+            !filter.trim() || (app.title && app.title.includes(filter))
+          )).map(app => (
+            <li
+              className="OculusLibrary__app"
+              key={app.id}
+              onClick={() => onSelect(app.exe, app.title, app.icon)}
+            >
+              <Thumbnail
+                src={asURL(app.icon, { resolve: false })}
+                alt={app.title || app.installDir.split(/[\\/]/).slice(-1)[0]}
+                title={app.title || app.installDir.split(/[\\/]/).slice(-1)[0]}
+              />
+              <h3 className="OculusLibrary__app__title">
+                {app.title}
+              </h3>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 }
