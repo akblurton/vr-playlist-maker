@@ -178,7 +178,7 @@ export { EditorApp };
 export default connect(state => ({
   playlist: activePlaylist(state),
 }), dispatch => ({
-  onAdd: (url, name, icon, type) => dispatch(addToPlaylist(url, name, icon, type)),
+  onAdd: (...args) => dispatch(addToPlaylist(...args)),
   onRemove: id => dispatch(removeFromPlaylist(id)),
   onSetTime: (id, time) => dispatch(setPlaylistItemTime(id, time)),
 }))(EditorApp);

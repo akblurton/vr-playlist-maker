@@ -11,6 +11,7 @@
   height: calc(100vh - 26px)
 
 
+
   &__app
     padding: 5px
     float: left
@@ -24,12 +25,20 @@
     justify-content: center
     overflow: hidden
     flex-direction: column
+    transition: opacity 0.2s ease
+    will-change: opacity
 
-    img
-      display: block
+    .Thumbnail
+      display: flex
       margin: 0 auto
-      max-width: 90px
-      max-height: 90px
+      width: 90px
+      height: 90px
+      align-items: center
+      justify-content: center
+
+      img
+        max-width: 90px
+        max-height: 90px
 
 
     &__title
@@ -41,3 +50,29 @@
       overflow: hidden
       width: 100%
       height: 15px
+
+  &.is-loading
+    .SteamLibrary__app
+      opacity: 0.4
+      pointer-events: none
+      &:first-child
+        pointer-events: auto
+
+    &::after
+      content: ""
+      position: fixed
+      top: 50%
+      left: 50%
+      margin-top: -20px
+      margin-left: -20px
+      background: url("../../icons/loading.svg") no-repeat center / 40px
+      animation: spinner 1s linear infinite
+      width: 40px
+      height: 40px
+
+
+@keyframes spinner
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

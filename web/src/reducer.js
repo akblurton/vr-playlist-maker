@@ -145,7 +145,6 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         oculus: {
           ...state.oculus,
-          apps: [],
           loading: true,
         },
       };
@@ -163,7 +162,6 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         steam: {
           ...state.steam,
-          apps: [],
           loading: true,
         },
       };

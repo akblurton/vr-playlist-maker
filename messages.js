@@ -74,7 +74,7 @@ listen("KILL_PROCESS", function(pid) {
     const uid = uuid();
     steamProcesses[uid] = killIt;
     return uid;
-  })
+  });
 
   listen("KILL_STEAM_PROCESS", async function(uid) {
     if (uid in steamProcesses) {
@@ -86,6 +86,4 @@ listen("KILL_PROCESS", function(pid) {
     }
     console.error("Could not find steam process");
   });
-
-
 })();

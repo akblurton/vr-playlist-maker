@@ -1,6 +1,7 @@
 [
   {
     "id": "1196665787048646",
+    "title": "Test Name #1",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\adult-swim-rick-and-morty-virtual-rick-ality",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\adult-swim-rick-and-morty-virtual-rick-ality\\RickAndMortyVR.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\adult-swim-rick-and-morty-virtual-rick-ality_assets\\cover_landscape_image.jpg",
@@ -8,6 +9,7 @@
   },
   {
     "id": "1257029974329451",
+    "title": "Test Name #2",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\against-gravity-rec-room",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\against-gravity-rec-room\\Recroom_Oculus.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\against-gravity-rec-room_assets\\cover_landscape_image.jpg",
@@ -15,6 +17,7 @@
   },
   {
     "id": "1289491464409931",
+    "title": "Test Name #3",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\agharta-studio-shufflepuck-cantina-deluxe",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\agharta-studio-shufflepuck-cantina-deluxe\\ShufflepuckCantinaDeluxeOculusGLXA.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\agharta-studio-shufflepuck-cantina-deluxe_assets\\cover_landscape_image.jpg",
@@ -22,6 +25,7 @@
   },
   {
     "id": "991947850898357",
+    "title": "Test Name #4",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\bandai-namco-entertainment-project-cars",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\bandai-namco-entertainment-project-cars\\pCARSOculus64.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\bandai-namco-entertainment-project-cars_assets\\cover_landscape_image.jpg",
@@ -29,6 +33,7 @@
   },
   {
     "id": "1317484621659545",
+    "title": "Test Name #5",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\big-box-vr-inc-smashbox-arena",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\big-box-vr-inc-smashbox-arena\\SmashboxArena.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\big-box-vr-inc-smashbox-arena_assets\\cover_landscape_image.jpg",
@@ -36,6 +41,7 @@
   },
   {
     "id": "1018613041536358",
+    "title": "Test Name #6",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\bigscreen-bigscreen",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\bigscreen-bigscreen\\Bigscreen\\Bigscreen.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\bigscreen-bigscreen_assets\\cover_landscape_image.jpg",
@@ -47,6 +53,7 @@
   },
   {
     "id": "1014328505355842",
+    "title": "Test Name #7",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\bossa-studios-ltd-surgeon-simulator-experience-reality",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\bossa-studios-ltd-surgeon-simulator-experience-reality\\SSER.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\bossa-studios-ltd-surgeon-simulator-experience-reality_assets\\cover_landscape_image.jpg",
@@ -54,6 +61,7 @@
   },
   {
     "id": "1224737437576074",
+    "title": "Test Name #8",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\cartoon-saloon-ltd-storytellers-cave",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\cartoon-saloon-ltd-storytellers-cave\\SOTS\\SOTS.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\cartoon-saloon-ltd-storytellers-cave_assets\\cover_landscape_image.jpg",
@@ -61,6 +69,7 @@
   },
   {
     "id": "775907692521284",
+    "title": "Test Name #9",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\ccp-games-newcastle-eve-valkyrie",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\ccp-games-newcastle-eve-valkyrie\\Image\\WindowsNoEditor\\VkGame\\Binaries\\Win64\\EVE-Valkyrie.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\ccp-games-newcastle-eve-valkyrie_assets\\cover_landscape_image.jpg",
@@ -73,6 +82,7 @@
   },
   {
     "id": "1083042371786607",
+    "title": "Test Name #10",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\cloudgine-toybox1",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\cloudgine-toybox1\\Toybox.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\cloudgine-toybox1_assets\\cover_landscape_image.jpg",
@@ -85,6 +95,7 @@
   },
   {
     "id": "996540877086329",
+    "title": "Test Name #11",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\coatsink-esper-2-pc",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\coatsink-esper-2-pc\\Esper - The Collection\\Esper - The Collection.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\coatsink-esper-2-pc_assets\\cover_landscape_image.jpg",
@@ -92,6 +103,7 @@
   },
   {
     "id": "992124094188963",
+    "title": "Test Name #12",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\codemasters-dirt-rally",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\codemasters-dirt-rally\\World\\application\\drt-vr.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\codemasters-dirt-rally_assets\\cover_landscape_image.jpg",
@@ -99,6 +111,7 @@
   },
   {
     "id": "1162702973806457",
+    "title": "Test Name #13",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\crytek-robinson-the-journey",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\crytek-robinson-the-journey\\bin\\win_x64\\Robinson.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\crytek-robinson-the-journey_assets\\cover_landscape_image.jpg",
@@ -106,6 +119,7 @@
   },
   {
     "id": "866068943510454",
+    "title": "Test Name #14",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\crytek-the-climb",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\crytek-the-climb\\crytek_climb_wip\\bin\\win_x64\\Climb.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\crytek-the-climb_assets\\cover_landscape_image.jpg",
@@ -113,6 +127,7 @@
   },
   {
     "id": "998016373574782",
+    "title": "Test Name #15",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\cubicle-ninjas-guided-meditation",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\cubicle-ninjas-guided-meditation\\Guided Meditation VR.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\cubicle-ninjas-guided-meditation_assets\\cover_landscape_image.jpg",
@@ -120,6 +135,7 @@
   },
   {
     "id": "1264016100304079",
+    "title": "Test Name #16",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\drool-llc-thumper",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\drool-llc-thumper\\THUMPER.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\drool-llc-thumper_assets\\cover_landscape_image.jpg",
@@ -129,6 +145,7 @@
   },
   {
     "id": "980771811959458",
+    "title": "Test Name #17",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\epic-games-bullet-train-gdc",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\epic-games-bullet-train-gdc\\BulletTrain-GDC-1.8SDK\\showup.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\epic-games-bullet-train-gdc_assets\\cover_landscape_image.jpg",
@@ -136,6 +153,7 @@
   },
   {
     "id": "1081190428622821",
+    "title": "Test Name #18",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\epic-games-odin",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\epic-games-odin\\RoboRecall\\Binaries\\Win64\\RoboRecall-Win64-Shipping.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\epic-games-odin_assets\\cover_landscape_image.jpg",
@@ -143,6 +161,7 @@
   },
   {
     "id": "1201154329997563",
+    "title": "Test Name #19",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\experiment-7-dungeon-chess-rift",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\experiment-7-dungeon-chess-rift\\DungeonChess\\DungeonChess.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\experiment-7-dungeon-chess-rift_assets\\cover_landscape_image.jpg",
@@ -150,6 +169,7 @@
   },
   {
     "id": "1036793313023466",
+    "title": "Test Name #20",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\facebook-vr-facebookvr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\facebook-vr-facebookvr\\FacebookSpaces.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\facebook-vr-facebookvr_assets\\cover_landscape_image.jpg",
@@ -157,6 +177,7 @@
   },
   {
     "id": "1252557204760403",
+    "title": "Test Name #21",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\foo-vr-inc-foo-view",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\foo-vr-inc-foo-view\\Rift\\foo.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\foo-vr-inc-foo-view_assets\\cover_landscape_image.jpg",
@@ -164,6 +185,7 @@
   },
   {
     "id": "1239137822800670",
+    "title": "Test Name #22",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\force-field-landfall",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\force-field-landfall\\WindowsClient\\LandfallClient.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\force-field-landfall_assets\\cover_landscape_image.jpg",
@@ -171,6 +193,7 @@
   },
   {
     "id": "988773191157765",
+    "title": "Test Name #23",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\frontier-developments-plc-elite-dangerous",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\frontier-developments-plc-elite-dangerous\\ORID.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\frontier-developments-plc-elite-dangerous_assets\\cover_landscape_image.jpg",
@@ -182,6 +205,7 @@
   },
   {
     "id": "974392602669459",
+    "title": "Test Name #24",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\funktronic-labs-cosmic-trip",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\funktronic-labs-cosmic-trip\\CosmicTrip.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\funktronic-labs-cosmic-trip_assets\\cover_landscape_image.jpg",
@@ -189,6 +213,7 @@
   },
   {
     "id": "1513995308673845",
+    "title": "Test Name #25",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\google-inc-google-earth-vr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\google-inc-google-earth-vr\\Earth.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\google-inc-google-earth-vr_assets\\cover_landscape_image.jpg",
@@ -196,6 +221,7 @@
   },
   {
     "id": "1320373124698683",
+    "title": "Test Name #26",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\google-inc-poly",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\google-inc-poly\\Blocks.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\google-inc-poly_assets\\cover_landscape_image.jpg",
@@ -203,6 +229,7 @@
   },
   {
     "id": "1111640318951750",
+    "title": "Test Name #27",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\google-inc-tilt-brush",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\google-inc-tilt-brush\\TiltBrush.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\google-inc-tilt-brush_assets\\cover_landscape_image.jpg",
@@ -210,6 +237,7 @@
   },
   {
     "id": "1302715766408798",
+    "title": "Test Name #28",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\grab-games-grab-knockout",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\grab-games-grab-knockout\\Knockout-03-30-b-oculus\\Knockout.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\grab-games-grab-knockout_assets\\cover_landscape_image.jpg",
@@ -217,6 +245,7 @@
   },
   {
     "id": "929508627125435",
+    "title": "Test Name #29",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\gunfire-games-llc-chronos",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\gunfire-games-llc-chronos\\Chronos.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\gunfire-games-llc-chronos_assets\\cover_landscape_image.jpg",
@@ -224,6 +253,7 @@
   },
   {
     "id": "911715622255585",
+    "title": "Test Name #30",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\guy-godin-virtual-desktop",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\guy-godin-virtual-desktop\\Virtual Desktop.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\guy-godin-virtual-desktop_assets\\cover_landscape_image.jpg",
@@ -231,6 +261,7 @@
   },
   {
     "id": "1332617726752141",
+    "title": "Test Name #31",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\halfbrick-studios-pty-ltd-fruit-ninja",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\halfbrick-studios-pty-ltd-fruit-ninja\\FruitNinjaVR.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\halfbrick-studios-pty-ltd-fruit-ninja_assets\\cover_landscape_image.jpg",
@@ -238,6 +269,7 @@
   },
   {
     "id": "744866972281509",
+    "title": "Test Name #32",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\harmonix-rockband-vr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\harmonix-rockband-vr\\rbvr.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\harmonix-rockband-vr_assets\\cover_landscape_image.jpg",
@@ -245,6 +277,7 @@
   },
   {
     "id": "1260824423952313",
+    "title": "Test Name #33",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\helloenjoy-fantasynth",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\helloenjoy-fantasynth\\WindowsNoEditor\\Fantasynth.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\helloenjoy-fantasynth_assets\\cover_landscape_image.jpg",
@@ -252,6 +285,7 @@
   },
   {
     "id": "1184265584927845",
+    "title": "Test Name #34",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\hidden-path-entertainment-dg2vr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\hidden-path-entertainment-dg2vr\\DefenseGrid2_Shipping.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\hidden-path-entertainment-dg2vr_assets\\cover_landscape_image.jpg",
@@ -262,6 +296,7 @@
   },
   {
     "id": "1308114652607170",
+    "title": "Test Name #35",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\hidden-path-entertainment-witchblood",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\hidden-path-entertainment-witchblood\\Witchblood\\Binaries\\Win64\\Witchblood.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\hidden-path-entertainment-witchblood_assets\\cover_landscape_image.jpg",
@@ -269,6 +304,7 @@
   },
   {
     "id": "660396644063513",
+    "title": "Test Name #36",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\high-voltage-software-inc-damaged-core",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\high-voltage-software-inc-damaged-core\\DamagedCore.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\high-voltage-software-inc-damaged-core_assets\\cover_landscape_image.jpg",
@@ -276,6 +312,7 @@
   },
   {
     "id": "1405726876106579",
+    "title": "Test Name #37",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\historia-project-neon",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\historia-project-neon\\Airtone\\Airtone.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\historia-project-neon_assets\\cover_landscape_image.jpg",
@@ -283,6 +320,7 @@
   },
   {
     "id": "1079392225455443",
+    "title": "Test Name #38",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\holospark-the-impossible-travel-agency",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\holospark-the-impossible-travel-agency\\WindowsNoEditor\\ITA.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\holospark-the-impossible-travel-agency_assets\\cover_landscape_image.jpg",
@@ -290,6 +328,7 @@
   },
   {
     "id": "1195983747083203",
+    "title": "Test Name #39",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\i-illusions-space-pirate-trainer",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\i-illusions-space-pirate-trainer\\SpacePirateVR.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\i-illusions-space-pirate-trainer_assets\\cover_landscape_image.jpg",
@@ -297,6 +336,7 @@
   },
   {
     "id": "1052821828143109",
+    "title": "Test Name #40",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\infectious-ape-kingspray-graffiti",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\infectious-ape-kingspray-graffiti\\Kingspray.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\infectious-ape-kingspray-graffiti_assets\\cover_landscape_image.jpg",
@@ -304,6 +344,7 @@
   },
   {
     "id": "940852485970061",
+    "title": "Test Name #41",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\insomniac-games-px",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\insomniac-games-px\\Game\\FeralRites.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\insomniac-games-px_assets\\cover_landscape_image.jpg",
@@ -311,6 +352,7 @@
   },
   {
     "id": "1070597869619581",
+    "title": "Test Name #42",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\insomniac-games-the-unspoken",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\insomniac-games-the-unspoken\\Game\\Unspoken.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\insomniac-games-the-unspoken_assets\\cover_landscape_image.jpg",
@@ -318,6 +360,7 @@
   },
   {
     "id": "1018772231550220",
+    "title": "Test Name #43",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\inxile-entertainment-the-mage-s-tale",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\inxile-entertainment-the-mage-s-tale\\MagesTale.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\inxile-entertainment-the-mage-s-tale_assets\\cover_landscape_image.jpg",
@@ -325,6 +368,7 @@
   },
   {
     "id": "1120724884606195",
+    "title": "Test Name #44",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\iris-vr-technolust",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\iris-vr-technolust\\Technolust.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\iris-vr-technolust_assets\\cover_landscape_image.jpg",
@@ -332,6 +376,7 @@
   },
   {
     "id": "1241059555937266",
+    "title": "Test Name #45",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\john-carline-nature-treks-vr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\john-carline-nature-treks-vr\\Nature Treks VR.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\john-carline-nature-treks-vr_assets\\cover_landscape_image.jpg",
@@ -339,6 +384,7 @@
   },
   {
     "id": "1184398028297648",
+    "title": "Test Name #46",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\kite-lightning-senza-peso",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\kite-lightning-senza-peso\\SenzaPeso.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\kite-lightning-senza-peso_assets\\cover_landscape_image.jpg",
@@ -348,6 +394,7 @@
   },
   {
     "id": "1272301922803537",
+    "title": "Test Name #47",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\limitless-ltd-gary-the-gull",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\limitless-ltd-gary-the-gull\\GaryTheGull\\Bird_3\\Binaries\\Win64\\Bird_3-Win64-Shipping.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\limitless-ltd-gary-the-gull_assets\\cover_landscape_image.jpg",
@@ -355,6 +402,7 @@
   },
   {
     "id": "1163831313746254",
+    "title": "Test Name #48",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\make-real-loco-dojo",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\make-real-loco-dojo\\LocoDojo.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\make-real-loco-dojo_assets\\cover_landscape_image.jpg",
@@ -362,6 +410,7 @@
   },
   {
     "id": "1116533615035202",
+    "title": "Test Name #49",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\mark-schramm-grav-lab-gravitational-testing-facility-observations",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\mark-schramm-grav-lab-gravitational-testing-facility-observations\\GravLab.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\mark-schramm-grav-lab-gravitational-testing-facility-observations_assets\\cover_landscape_image.jpg",
@@ -369,6 +418,7 @@
   },
   {
     "id": "741306562635466",
+    "title": "Test Name #50",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\mojang-ab-minecraft-oculus-rift",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\mojang-ab-minecraft-oculus-rift\\MinecraftWindows10EditionLauncher.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\mojang-ab-minecraft-oculus-rift_assets\\cover_landscape_image.jpg",
@@ -376,6 +426,7 @@
   },
   {
     "id": "1198491230176054",
+    "title": "Test Name #51",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-dead-and-buried",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-dead-and-buried\\DeadAndBuried\\DeadAndBuried.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-dead-and-buried_assets\\cover_landscape_image.jpg",
@@ -383,6 +434,7 @@
   },
   {
     "id": "1174445049267874",
+    "title": "Test Name #52",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-dear-angelica",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-dear-angelica\\dear\\Binaries\\Win64\\dear-Win64-Shipping.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-dear-angelica_assets\\cover_landscape_image.jpg",
@@ -390,6 +442,7 @@
   },
   {
     "id": "941682542593981",
+    "title": "Test Name #53",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-dreamdeck",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-dreamdeck\\WindowsNoEditor\\Dreamdeck\\Binaries\\Win64\\Dreamdeck-Win64-Shipping.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-dreamdeck_assets\\cover_landscape_image.jpg",
@@ -400,6 +453,7 @@
   },
   {
     "id": "926295224105459",
+    "title": "Test Name #54",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-farlands",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-farlands\\Farlands.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-farlands_assets\\cover_landscape_image.jpg",
@@ -409,6 +463,7 @@
   },
   {
     "id": "1217155751659625",
+    "title": "Test Name #55",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-first-contact",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-first-contact\\TouchNUX\\Binaries\\Win64\\TouchNUX-Win64-Shipping.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-first-contact_assets\\cover_landscape_image.jpg",
@@ -418,6 +473,7 @@
   },
   {
     "id": "1043217179077622",
+    "title": "Test Name #56",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-henry",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-henry\\Henry\\Binaries\\Win64\\Henry-Win64-Shipping.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-henry_assets\\cover_landscape_image.jpg",
@@ -425,6 +481,7 @@
   },
   {
     "id": "1004798886239391",
+    "title": "Test Name #57",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-oculus-360-photos",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-oculus-360-photos\\Oculus360Photos.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-oculus-360-photos_assets\\cover_landscape_image.jpg",
@@ -432,6 +489,7 @@
   },
   {
     "id": "1336762299669605",
+    "title": "Test Name #58",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-oculus-medium-retail",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-oculus-medium-retail\\bin\\OculusMedium.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-oculus-medium-retail_assets\\cover_landscape_image.jpg",
@@ -439,6 +497,7 @@
   },
   {
     "id": "926562347437041",
+    "title": "Test Name #59",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-oculus-video",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-oculus-video\\Cinema.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-oculus-video_assets\\cover_landscape_image.jpg",
@@ -446,6 +505,7 @@
   },
   {
     "id": "1118609381580656",
+    "title": "Test Name #60",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-quill",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\oculus-quill\\QuillApp\\Quill.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\oculus-quill_assets\\cover_landscape_image.jpg",
@@ -453,6 +513,7 @@
   },
   {
     "id": "1011429558899116",
+    "title": "Test Name #61",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\opus-studio-inc-pro-fishing-challenge-vr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\opus-studio-inc-pro-fishing-challenge-vr\\Fishing\\Binaries\\Win64\\Fishing.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\opus-studio-inc-pro-fishing-challenge-vr_assets\\cover_landscape_image.jpg",
@@ -460,6 +521,7 @@
   },
   {
     "id": "1069133196442024",
+    "title": "Test Name #62",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\owlchemy-labs-job-simulator",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\owlchemy-labs-job-simulator\\JobSimulator.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\owlchemy-labs-job-simulator_assets\\cover_landscape_image.jpg",
@@ -467,6 +529,7 @@
   },
   {
     "id": "926273867499264",
+    "title": "Test Name #63",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\penrose-allumette",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\penrose-allumette\\Allumette\\Allumette.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\penrose-allumette_assets\\cover_landscape_image.jpg",
@@ -474,6 +537,7 @@
   },
   {
     "id": "980646215356452",
+    "title": "Test Name #64",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\penrose-the-rose-and-i",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\penrose-the-rose-and-i\\RoseAndI.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\penrose-the-rose-and-i_assets\\cover_landscape_image.jpg",
@@ -481,6 +545,7 @@
   },
   {
     "id": "1303301169681067",
+    "title": "Test Name #65",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\perilous-orbit-sportsbarvr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\perilous-orbit-sportsbarvr\\WindowsNoEditor\\SportsBarVR.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\perilous-orbit-sportsbarvr_assets\\cover_landscape_image.jpg",
@@ -488,6 +553,7 @@
   },
   {
     "id": "966139690133648",
+    "title": "Test Name #66",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\phaser-lock-interactive-final-approach-vr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\phaser-lock-interactive-final-approach-vr\\FinalApproachVR.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\phaser-lock-interactive-final-approach-vr_assets\\cover_landscape_image.jpg",
@@ -498,6 +564,7 @@
   },
   {
     "id": "1127100290673351",
+    "title": "Test Name #67",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\phaser-lock-interactive-twisted-arrow",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\phaser-lock-interactive-twisted-arrow\\TwistedArrow.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\phaser-lock-interactive-twisted-arrow_assets\\cover_landscape_image.jpg",
@@ -508,6 +575,7 @@
   },
   {
     "id": "909129545868758",
+    "title": "Test Name #68",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\playful-luckys-tale",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\playful-luckys-tale\\LT.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\playful-luckys-tale_assets\\cover_landscape_image.jpg",
@@ -515,6 +583,7 @@
   },
   {
     "id": "1237549349646647",
+    "title": "Test Name #69",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\playstack-ltd-dick-wilde",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\playstack-ltd-dick-wilde\\DickWilde.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\playstack-ltd-dick-wilde_assets\\cover_landscape_image.jpg",
@@ -522,6 +591,7 @@
   },
   {
     "id": "984422844986476",
+    "title": "Test Name #70",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\psyop-kismet",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\psyop-kismet\\kismetVr\\kismetVr.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\psyop-kismet_assets\\cover_landscape_image.jpg",
@@ -529,6 +599,7 @@
   },
   {
     "id": "805471026242002",
+    "title": "Test Name #71",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\psytec-games-ltd-crystal-rift",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\psytec-games-ltd-crystal-rift\\CrystalRift_OculusRift_Store_x86_64.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\psytec-games-ltd-crystal-rift_assets\\cover_landscape_image.jpg",
@@ -536,6 +607,7 @@
   },
   {
     "id": "989322321141039",
+    "title": "Test Name #72",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\psytec-games-ltd-windlands",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\psytec-games-ltd-windlands\\Windlands_OculusRift_Store_x64.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\psytec-games-ltd-windlands_assets\\cover_landscape_image.jpg",
@@ -543,6 +615,7 @@
   },
   {
     "id": "922076897882360",
+    "title": "Test Name #73",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\radial-games-corp-fantastic-contraption",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\radial-games-corp-fantastic-contraption\\FantasticContraption\\FantasticContraption.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\radial-games-corp-fantastic-contraption_assets\\cover_landscape_image.jpg",
@@ -550,6 +623,7 @@
   },
   {
     "id": "991142941007103",
+    "title": "Test Name #74",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\ready-at-dawn-r14-multiplayer",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\ready-at-dawn-r14-multiplayer\\bin\\win7\\EchoArena.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\ready-at-dawn-r14-multiplayer_assets\\cover_landscape_image.jpg",
@@ -561,6 +635,7 @@
   },
   {
     "id": "1056843937708939",
+    "title": "Test Name #75",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\red-storm-entertainment-nova",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\red-storm-entertainment-nova\\Public\\stbc.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\red-storm-entertainment-nova_assets\\cover_landscape_image.jpg",
@@ -571,6 +646,7 @@
   },
   {
     "id": "929066113810015",
+    "title": "Test Name #76",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\sanzaru-games-inc-recoil",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\sanzaru-games-inc-recoil\\RipcoilVRPackage\\RipcoilVRClient\\RipcoilVR.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\sanzaru-games-inc-recoil_assets\\cover_landscape_image.jpg",
@@ -581,6 +657,7 @@
   },
   {
     "id": "1132870140059346",
+    "title": "Test Name #77",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\sanzaru-games-inc-vr-sports-challenge",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\sanzaru-games-inc-vr-sports-challenge\\VRSportsChallenge.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\sanzaru-games-inc-vr-sports-challenge_assets\\cover_landscape_image.jpg",
@@ -588,6 +665,7 @@
   },
   {
     "id": "1115950031749190",
+    "title": "Test Name #78",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\schell-games-i-expect-you-to-die",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\schell-games-i-expect-you-to-die\\IEYTD.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\schell-games-i-expect-you-to-die_assets\\cover_landscape_image.jpg",
@@ -595,6 +673,7 @@
   },
   {
     "id": "1263430353678786",
+    "title": "Test Name #79",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\secret-sorcery-tethered",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\secret-sorcery-tethered\\Tethered.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\secret-sorcery-tethered_assets\\cover_landscape_image.jpg",
@@ -602,6 +681,7 @@
   },
   {
     "id": "676747619095568",
+    "title": "Test Name #80",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\square-enix-ltd-hitman-go-vr-edition-rift",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\square-enix-ltd-hitman-go-vr-edition-rift\\Hitman GO_1.1.70507.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\square-enix-ltd-hitman-go-vr-edition-rift_assets\\cover_landscape_image.jpg",
@@ -609,6 +689,7 @@
   },
   {
     "id": "1012593518800648",
+    "title": "Test Name #81",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\superhot-superhot",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\superhot-superhot\\superhot.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\superhot-superhot_assets\\cover_landscape_image.jpg",
@@ -616,6 +697,7 @@
   },
   {
     "id": "1138122202866373",
+    "title": "Test Name #82",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\tammeka-radial-g-racing-revolved",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\tammeka-radial-g-racing-revolved\\Radial-G.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\tammeka-radial-g-racing-revolved_assets\\cover_landscape_image.jpg",
@@ -625,6 +707,7 @@
   },
   {
     "id": "809121772547247",
+    "title": "Test Name #83",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\targem-games-blazerush",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\targem-games-blazerush\\pc\\game_dx11.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\targem-games-blazerush_assets\\cover_landscape_image.jpg",
@@ -634,6 +717,7 @@
   },
   {
     "id": "1077839092284541",
+    "title": "Test Name #84",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\treefortress-games-holoball",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\treefortress-games-holoball\\HoloBall.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\treefortress-games-holoball_assets\\cover_landscape_image.jpg",
@@ -641,6 +725,7 @@
   },
   {
     "id": "1106538986077576",
+    "title": "Test Name #85",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\turbo-button-floor-plan-for-oculus-rift",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\turbo-button-floor-plan-for-oculus-rift\\FloorPlan.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\turbo-button-floor-plan-for-oculus-rift_assets\\cover_landscape_image.jpg",
@@ -648,6 +733,7 @@
   },
   {
     "id": "1003772722992854",
+    "title": "Test Name #86",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\ubisoft-montreal-eagle-flight",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\ubisoft-montreal-eagle-flight\\Game\\EagleFlight.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\ubisoft-montreal-eagle-flight_assets\\cover_landscape_image.jpg",
@@ -660,6 +746,7 @@
   },
   {
     "id": "1480133245392512",
+    "title": "Test Name #87",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\warner-bros-interactive-entertainment-batman-arkham-vr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\warner-bros-interactive-entertainment-batman-arkham-vr\\ArkhamVR\\Binaries\\Win64\\ArkhamVR.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\warner-bros-interactive-entertainment-batman-arkham-vr_assets\\cover_landscape_image.jpg",
@@ -667,6 +754,7 @@
   },
   {
     "id": "1266881563371842",
+    "title": "Test Name #88",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\xbox-xbox-one-streaming",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\xbox-xbox-one-streaming\\XboxVRLauncher.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\xbox-xbox-one-streaming_assets\\cover_landscape_image.jpg",
@@ -674,6 +762,7 @@
   },
   {
     "id": "899545263499753",
+    "title": "Test Name #89",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\zen-pinball-castlestorm-vr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\zen-pinball-castlestorm-vr\\CastleStorm.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\zen-pinball-castlestorm-vr_assets\\cover_landscape_image.jpg",
@@ -681,6 +770,7 @@
   },
   {
     "id": "1044201475659209",
+    "title": "Test Name #90",
     "installDir": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\zen-pinball-zen-pinball-vr",
     "exe": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\zen-pinball-zen-pinball-vr\\pfx2vr.exe",
     "icon": "C:\\Program Files (x86)\\Oculus\\Software\\Software\\StoreAssets\\zen-pinball-zen-pinball-vr_assets\\cover_landscape_image.jpg",

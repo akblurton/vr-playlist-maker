@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import asURL from "file-url";
 import { loadOculusLibrary } from "actions";
+import Thumbnail from "./Thumbnail";
 
 class OculusLibrary extends React.Component {
   static propTypes = {
@@ -33,13 +34,6 @@ class OculusLibrary extends React.Component {
 
   render() {
     const { loading, apps, onSelect } = this.props;
-    if (loading) {
-      return (
-        <div className="OculusLibrary">
-          Loading...
-        </div>
-      );
-    }
     return (
       <ul
         className={cn("OculusLibrary", {
@@ -58,7 +52,7 @@ class OculusLibrary extends React.Component {
             key={app.id}
             onClick={() => onSelect(app.exe, app.title, app.icon)}
           >
-            <img
+            <Thumbnail
               src={asURL(app.icon, { resolve: false })}
               alt={app.title || app.installDir.split(/[\\/]/).slice(-1)[0]}
               title={app.title || app.installDir.split(/[\\/]/).slice(-1)[0]}

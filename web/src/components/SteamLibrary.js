@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import asURL from "file-url";
 import { loadSteamLibrary } from "actions";
+import Thumbnail from "./Thumbnail";
 
 class SteamLibrary extends React.Component {
   static propTypes = {
@@ -33,13 +34,6 @@ class SteamLibrary extends React.Component {
 
   render() {
     const { loading, apps, onSelect } = this.props;
-    if (loading) {
-      return (
-        <div className="SteamLibrary">
-          Loading...
-        </div>
-      );
-    }
     return (
       <ul
         className={cn("SteamLibrary", {
@@ -60,7 +54,7 @@ class SteamLibrary extends React.Component {
               { id: app.id, exe: app.exe }, app.name, app.icon
             )}
           >
-            <img
+            <Thumbnail
               src={asURL(app.icon, { resolve: false })}
               alt={app.name || app.dir.split(/[\\/]/).slice(-1)[0]}
               title={app.name || app.dir.split(/[\\/]/).slice(-1)[0]}
