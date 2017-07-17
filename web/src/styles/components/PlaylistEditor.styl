@@ -52,3 +52,17 @@
 
           &:hover
             background-color: #D12B35
+
+        &--move-up, &--move-down
+          background-color: #CCC
+          -webkit-mask-image: url("../../icons/up.svg")
+
+          &:hover
+            background-color: #BBB
+
+
+          &[disabled]
+            background-color: #EEE !important
+
+        &--move-down
+          -webkit-mask-image: url("../../icons/down.svg")

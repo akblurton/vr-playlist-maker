@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import ControlBar from "./ControlBar";
 import { activePlaylist } from "selectors";
 import {
-  addToPlaylist, removeFromPlaylist, setPlaylistItemTime,
+  addToPlaylist, removeFromPlaylist, setPlaylistItemTime, moveItem,
 } from "actions";
 
 import PlaylistEditor from "components/PlaylistEditor";
@@ -23,6 +23,7 @@ class EditorApp extends React.Component {
     })),
     onAdd: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,
+    onMove: PropTypes.func.isRequired,
     onSetTime: PropTypes.func.isRequired,
   };
 
@@ -114,13 +115,14 @@ class EditorApp extends React.Component {
   }
 
   render() {
-    const { playlist, onRemove, onSetTime } = this.props;
+    const { playlist, onRemove, onSetTime, onMove } = this.props;
     const { selectorOpen, oculusSelectorOpen, steamSelectorOpen } = this.state;
     return (
       <div className="EditorApp">
         <ControlBar minimize={false} title="Playlist Editor" />
         <PlaylistEditor
           items={playlist}
+          onMove={onMove}
           onRemove={onRemove}
           onSetTime={onSetTime}
         />
@@ -180,5 +182,6 @@ export default connect(state => ({
 }), dispatch => ({
   onAdd: (...args) => dispatch(addToPlaylist(...args)),
   onRemove: id => dispatch(removeFromPlaylist(id)),
+  onMove: (id, direction) => dispatch(moveItem(id, direction)),
   onSetTime: (id, time) => dispatch(setPlaylistItemTime(id, time)),
 }))(EditorApp);

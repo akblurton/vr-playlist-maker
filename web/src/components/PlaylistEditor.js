@@ -12,11 +12,16 @@ class PlaylistEditor extends React.Component {
       duration: PropTypes.number.isRequired,
     })),
     onRemove: PropTypes.func.isRequired,
+    onMove: PropTypes.func.isRequired,
     onSetTime: PropTypes.func.isRequired,
   };
 
   handleRemove(index) {
     return () => this.props.onRemove(index);
+  }
+
+  handleMove(index, direction) {
+    return () => this.props.onMove(index, direction);
   }
 
   handleSetTime(index) {
@@ -35,7 +40,7 @@ class PlaylistEditor extends React.Component {
             key={index}
           >
             <div className="PlaylistEditor__item__row">
-              <h2 
+              <h2
                 className="PlaylistEditor__item__title"
                 title={item.name || item.exe}
               >
@@ -57,6 +62,22 @@ class PlaylistEditor extends React.Component {
                 />
               </label>
               <nav className="PlaylistEditor__item__actions">
+                <button
+                  className="PlaylistEditor__item__actions__button
+                             PlaylistEditor__item__actions__button--move-up"
+                  type="button"
+                  title="Move Up"
+                  disabled={index === 0}
+                  onClick={this.handleMove(index, -1)}
+                />
+                <button
+                  className="PlaylistEditor__item__actions__button
+                             PlaylistEditor__item__actions__button--move-down"
+                  type="button"
+                  title="Move Down"
+                  disabled={index === items.length - 1}
+                  onClick={this.handleMove(index, 1)}
+                />
                 <button
                   className="PlaylistEditor__item__actions__button
                              PlaylistEditor__item__actions__button--remove"

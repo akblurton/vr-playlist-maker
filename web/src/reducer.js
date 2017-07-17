@@ -6,6 +6,24 @@ import audioClips from "assets";
 
 const TEN_MINUTES = 1000 * 60 * 10;
 
+const move = function(arr, old_index, new_index) {
+  const a = [...arr];
+  while (old_index < 0) {
+    old_index += a.length;
+  }
+  while (new_index < 0) {
+    new_index += a.length;
+  }
+  if (new_index >= a.length) {
+    let k = new_index - a.length;
+    while ((k--) + 1) {
+      a.push(undefined);
+    }
+  }
+  a.splice(new_index, 0, a.splice(old_index, 1)[0]);
+  return a;
+};
+
 export const INITIAL_STATE = {
   oculus: {
     apps: [],
@@ -130,6 +148,17 @@ export default function(state = INITIAL_STATE, action) {
         ...state,
         playlist: state.playlist.filter((_, i) => i !== action.index),
       };
+    case actions.MOVE_ITEM: {
+      const { index, direction } = action;
+      const playlist = [...state.playlist];
+      const newIndex = Math.max(
+        0, Math.min(index + direction, playlist.length - 1)
+      );
+      return {
+        ...state,
+        playlist: move(playlist, index, newIndex),
+      };
+    }
     case actions.SET_PLAYLIST_ITEM_TIME:
       return {
         ...state,

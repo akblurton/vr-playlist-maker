@@ -90,3 +90,13 @@ export function loadSteamLibraryComplete(apps) {
     apps,
   };
 }
+
+
+export const MOVE_ITEM = "MOVE_ITEM";
+export function moveItem(index, direction) {
+  return {
+    type: MOVE_ITEM,
+    index,
+    direction,
+  };
+}
