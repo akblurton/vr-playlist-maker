@@ -47,11 +47,7 @@ export function* playWarnings(warnings, sounds, duration) {
   return accumulator;
 }
 
-export function* runApplication(index, { exe, duration, type }, {
-  warnings,
-  warningSounds,
-  start,
-}) {
+export function* startApp(index, { exe, type }, { start }) {
   if (start) {
     yield call([start, start.play]);
   }
@@ -75,7 +71,13 @@ export function* runApplication(index, { exe, duration, type }, {
     return;
   }
 
-  const startedAt = Date.now();
+  return pid;
+}
+
+export function* waitUntilFinished({ duration }, {
+  warnings,
+  warningSounds,
+}) {
   const counter = yield fork(startCounter, duration);
   const accumulator = yield call(
     playWarnings, warnings, warningSounds, duration
@@ -83,22 +85,35 @@ export function* runApplication(index, { exe, duration, type }, {
 
   // Wait for time to elapse
   yield call(delay, Math.max(0, duration - accumulator));
-  // Kill process
-  for (let i = 0; i < RETRIES; i++) {
-    try {
-      const msg = type === "steam" ? "KILL_STEAM_PROCESS" : "KILL_PROCESS";
-      yield call(send, msg, [pid]);
+  yield join(counter);
+
+  return true;
+}
+
+export function* runApplication(index, task, options) {
+  const { type } = task;
+  while (true) { // eslint-disable-line no-constant-condition
+    const pid = yield call(startApp, index, task, options);
+    const { done } = yield race({
+      done: call(waitUntilFinished, task, options),
+      reset: take(actions.RESTART_APP),
+    });
+
+    // Kill process
+    for (let i = 0; i < RETRIES; i++) {
+      try {
+        const msg = type === "steam" ? "KILL_STEAM_PROCESS" : "KILL_PROCESS";
+        yield call(send, msg, [pid]);
+        break;
+      } catch (e) {
+        // ignore
+      }
+    }
+
+    if (done) {
       break;
-    } catch (e) {
-      // ignore
     }
   }
-
-  yield join(counter);
-  const endedAt = Date.now();
-  console.log(
-    "Playlist item complete in ", endedAt - startedAt, "target:", duration
-  );
 }
 
 const RETRIES = 3;

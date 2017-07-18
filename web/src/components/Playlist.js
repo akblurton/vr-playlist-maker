@@ -15,6 +15,7 @@ class Playlist extends React.Component {
     })),
     current: PropTypes.number.isRequired,
     counter: PropTypes.number.isRequired,
+    onRestart: PropTypes.func,
   };
 
   _activeEl = null;
@@ -34,7 +35,7 @@ class Playlist extends React.Component {
   }
 
   render() {
-    const { items, current, counter } = this.props;
+    const { items, current, counter, onRestart } = this.props;
     return (
       <ol className="Playlist">
         {items.map((item, index) => (
@@ -52,6 +53,12 @@ class Playlist extends React.Component {
                 current === index ? counter : 0
               ))}
             </time>
+            <button
+              className="Playlist__item__restart"
+              onClick={onRestart}
+            >
+              Restart
+            </button>
           </li>
         ))}
       </ol>

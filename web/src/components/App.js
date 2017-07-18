@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { autobind } from "core-decorators";
 
 import { activePlaylist, currentIndex } from "selectors";
-import { startPlaylist, stopPlaylist } from "actions";
+import { startPlaylist, stopPlaylist, restartApp } from "actions";
 
 import Playlist from "./Playlist";
 import ControlBar from "./ControlBar";
@@ -18,6 +18,7 @@ class App extends React.Component {
   static propTypes = {
     start: PropTypes.func.isRequired,
     stop: PropTypes.func.isRequired,
+    restart: PropTypes.func.isRequired,
     running: PropTypes.bool.isRequired,
     playlist: PropTypes.arrayOf(PropTypes.shape({
       exe: PropTypes.string.isRequired,
@@ -39,6 +40,11 @@ class App extends React.Component {
     } else {
       start();
     }
+  }
+
+  @autobind
+  handleRestart() {
+    this.props.restart();
   }
 
   handleShowConfig() {
@@ -67,6 +73,7 @@ class App extends React.Component {
           items={playlist}
           current={current}
           counter={counter}
+          onRestart={this.handleRestart}
         />
         <nav className="App__actions">
           <button
@@ -98,4 +105,5 @@ export default connect(state => ({
 }), dispatch => ({
   start: () => dispatch(startPlaylist()),
   stop: () => dispatch(stopPlaylist()),
+  restart: () => dispatch(restartApp()),
 }))(App);

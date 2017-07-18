@@ -111,3 +111,8 @@ export const setCounter = value => ({
   type: SET_COUNTER,
   value,
 });
+
+export const RESTART_APP = "RESTART_APP";
+export const restartApp = () => ({
+  type: RESTART_APP,
+});
