@@ -1,5 +1,5 @@
 import {
-  all, take, race, call, select, put, takeLatest,
+  all, take, race, call, select, put, takeLatest, fork, join,
 } from "redux-saga/effects";
 import { delay } from "redux-saga";
 import { send } from "helpers/ipc";
@@ -7,6 +7,99 @@ import { send } from "helpers/ipc";
 import * as actions from "./actions";
 import { activePlaylist, config, audioDevice } from "./selectors";
 import { getAudioDevices, buildAudioElements } from "helpers/media";
+
+export function* startCounter(duration) {
+  let accumulator = 0;
+  yield put(actions.resetCounter());
+  while (accumulator < duration) {
+    yield call(delay, 1000);
+    accumulator += 1000;
+    yield put(actions.setCounter(accumulator));
+  }
+}
+
+export function* playWarnings(warnings, sounds, duration) {
+  const sortedWarnings = [...warnings].sort((a, b) => (
+    b.time - a.time // Large times first
+  ));
+  let accumulator = 0; // Keep track of time spent so far
+  for (const [index, { sound, time, enabled }] of sortedWarnings.entries()) {
+    if (!enabled) {
+      continue;
+    }
+    // Calculate time to wait
+    const t = duration - time  - accumulator;
+    if (t <= 0) {
+      continue; // Item is before start time
+    }
+    accumulator += t;
+    yield call(delay, t);
+    if (sounds[index]) {
+      try {
+        yield call([sounds[index], sounds[index].play]);
+      } catch (e) {
+        // Audio problem
+        console.warn("Audio playback failed");
+      }
+    }
+    console.log(`Sending warning ${sound} ${time / 1000} seconds before end`);
+  }
+  return accumulator;
+}
+
+export function* runApplication(index, { exe, duration, type }, {
+  warnings,
+  warningSounds,
+  start,
+}) {
+  if (start) {
+    yield call([start, start.play]);
+  }
+
+  yield put(actions.setCurrentIndex(index));
+
+  // Start process
+  let pid = null;
+  for (let i = 0; i < RETRIES; i++) {
+    try {
+      const msg = type === "steam" ? "START_STEAM_PROCESS" : "START_PROCESS";
+      pid = yield call(send, msg, [exe]);
+      break;
+    } catch (e) {
+      // ignore and try again
+    }
+  }
+
+  if (!pid) {
+    // error occured
+    return;
+  }
+
+  const startedAt = Date.now();
+  const counter = yield fork(startCounter, duration);
+  const accumulator = yield call(
+    playWarnings, warnings, warningSounds, duration
+  );
+
+  // Wait for time to elapse
+  yield call(delay, Math.max(0, duration - accumulator));
+  // Kill process
+  for (let i = 0; i < RETRIES; i++) {
+    try {
+      const msg = type === "steam" ? "KILL_STEAM_PROCESS" : "KILL_PROCESS";
+      yield call(send, msg, [pid]);
+      break;
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  yield join(counter);
+  const endedAt = Date.now();
+  console.log(
+    "Playlist item complete in ", endedAt - startedAt, "target:", duration
+  );
+}
 
 const RETRIES = 3;
 export function* processPlaylist() {
@@ -30,80 +123,19 @@ export function* processPlaylist() {
   const [startSound] = yield call(
     buildAudioElements, [startNotice], audioDevice
   );
-  for (const [index, { exe, duration, type }] of playlist.entries()) {
-    if (startNotice.enabled) {
-      yield call([startSound, startSound.play]);
-    }
 
-    yield put(actions.setCurrentIndex(index));
-
-    // Start process
-    let pid = null;
-    for (let i = 0; i < RETRIES; i++) {
-      try {
-        const msg = type === "steam" ? "START_STEAM_PROCESS" : "START_PROCESS";
-        pid = yield call(send, msg, [exe]);
-        break;
-      } catch (e) {
-        // ignore and try again
-      }
-    }
-
-    if (!pid) {
-      // error occured
-      return;
-    }
-
-    const startedAt = Date.now();
-    const sortedWarnings = [...warnings].sort((a, b) => (
-      b.time - a.time // Large times first
-    ));
-
-    let accumulator = 0; // Keep track of time spent so far
-    for (const [index, { sound, time, enabled }] of sortedWarnings.entries()) {
-      if (!enabled) {
-        continue;
-      }
-      // Calculate time to wait
-      const t = duration - time  - accumulator;
-      if (t <= 0) {
-        continue; // Item is before start time
-      }
-      accumulator += t;
-      yield call(delay, t);
-      if (warningSounds[index]) {
-        try {
-          yield call([warningSounds[index], warningSounds[index].play]);
-        } catch (e) {
-          // Audio problem
-          console.warn("Audio playback failed");
-        }
-      }
-      console.log(`Sending warning ${sound} ${time / 1000} seconds before end`);
-    }
-
-    // Wait for time to elapse
-    yield call(delay, Math.max(0, duration - accumulator));
-    // Kill process
-    for (let i = 0; i < RETRIES; i++) {
-      try {
-        const msg = type === "steam" ? "KILL_STEAM_PROCESS" : "KILL_PROCESS";
-        yield call(send, msg, [pid]);
-        break;
-      } catch (e) {
-        // ignore
-      }
-    }
-
-    const endedAt = Date.now();
-    console.log(
-      "Playlist item complete in ", endedAt - startedAt, "target:", duration
-    );
+  for (const [index, item] of playlist.entries()) {
+    yield call(runApplication, index, item, {
+      warningSounds,
+      warnings,
+      start: startNotice.enabled ? startSound : null,
+    });
 
     // Wait specified time between apps to allow for shutdown
     console.log("Waiting ", beforeDelay, "s until opening next app");
     yield call(delay, beforeDelay * 1000);
   }
+
   if (endNotice.enabled) {
     yield call([endSound, endSound.play]);
   }

@@ -24,6 +24,7 @@ class App extends React.Component {
       duration: PropTypes.number.isRequired,
     })),
     current: PropTypes.number.isRequired,
+    counter: PropTypes.number.isRequired,
   };
 
   state = {
@@ -49,7 +50,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { running, playlist, current } = this.props;
+    const { running, playlist, current, counter } = this.props;
     return (
       <div className="App">
         <ControlBar title="VR Playlist Maker" />
@@ -62,7 +63,11 @@ class App extends React.Component {
         >
           {running ? "Running (Stop)" : "Click to start"}
         </button>
-        <Playlist items={playlist} current={current} />
+        <Playlist
+          items={playlist}
+          current={current}
+          counter={counter}
+        />
         <nav className="App__actions">
           <button
             className="App__actions__button App__actions__button--editor"
@@ -89,6 +94,7 @@ export default connect(state => ({
   running: state.playback.running,
   playlist: activePlaylist(state),
   current: currentIndex(state),
+  counter: state.playback.counter,
 }), dispatch => ({
   start: () => dispatch(startPlaylist()),
   stop: () => dispatch(stopPlaylist()),

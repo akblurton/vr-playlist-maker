@@ -115,7 +115,7 @@ module.exports = function webpackConfig() {
   if (isDev) {
     config.plugins.push(
       new DashboardPlugin(),
-      new webpack.NamedModulesPlugin(),
+      new webpack.NamedModulesPlugin()
     );
   }
 

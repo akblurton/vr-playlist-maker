@@ -14,6 +14,7 @@ class Playlist extends React.Component {
       duration: PropTypes.number.isRequired,
     })),
     current: PropTypes.number.isRequired,
+    counter: PropTypes.number.isRequired,
   };
 
   _activeEl = null;
@@ -33,7 +34,7 @@ class Playlist extends React.Component {
   }
 
   render() {
-    const { items, current } = this.props;
+    const { items, current, counter } = this.props;
     return (
       <ol className="Playlist">
         {items.map((item, index) => (
@@ -47,7 +48,9 @@ class Playlist extends React.Component {
           >
             {item.name || executable(item.exe)}
             <time className="Playlist__item__duration">
-              {time(item.duration)}
+              {time(item.duration - (
+                current === index ? counter : 0
+              ))}
             </time>
           </li>
         ))}

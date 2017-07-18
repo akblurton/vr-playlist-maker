@@ -100,3 +100,14 @@ export function moveItem(index, direction) {
     direction,
   };
 }
+
+export const RESET_COUNTER = "RESET_COUNTER";
+export const resetCounter = () => ({
+  type: RESET_COUNTER,
+});
+
+export const SET_COUNTER = "SET_COUNTER";
+export const setCounter = value => ({
+  type: SET_COUNTER,
+  value,
+});

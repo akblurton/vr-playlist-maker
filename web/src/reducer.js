@@ -36,6 +36,7 @@ export const INITIAL_STATE = {
   playback: {
     running: false,
     index: -1,
+    counter: 0,
   },
   playlist: [
     { exe: "./example-processes/test1.sh", duration: TEN_MINUTES },
@@ -201,6 +202,22 @@ export default function(state = INITIAL_STATE, action) {
           ...state.steam,
           apps: action.apps,
           loading: false,
+        },
+      };
+    case actions.RESET_COUNTER:
+      return {
+        ...state,
+        playback: {
+          ...state.playback,
+          counter: 0,
+        },
+      };
+    case actions.SET_COUNTER:
+      return {
+        ...state,
+        playback: {
+          ...state.playback,
+          counter: action.value,
         },
       };
     default:
