@@ -19,6 +19,9 @@ listen("LIST_PROCESSES", function() {
 });
 
 listen("START_PROCESS", async function(exe) {
+  if (process.env.MOCK_PROCESSES === "yes") {
+    return uuid();
+  }
   const absolute = resolve(process.cwd(), exe);
   console.log("Starting process", absolute);
   try {
@@ -39,7 +42,9 @@ listen("START_PROCESS", async function(exe) {
 
 const os = require("os");
 listen("KILL_PROCESS", function(pid) {
-  console.log("Killing process", pid);
+  if (process.env.MOCK_PROCESSES === "yes") {
+    return true;
+  }
   if(os.platform() === "win32") {
     exec(`taskkill /pid ${pid} /T /F`);
   } else {

@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./",
     "start": "cross-env NODE_ENV=development electron .",
+    "dev": "cross-env MOCK_STEAM=yes MOCK_PROCESSES=yes yarn run start",
     "webpack": "cross-env NODE_ENV=production webpack --progress",
     "webpack-server": "cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --hot --inline --quiet",
     "prepack": "yarn run webpack",
