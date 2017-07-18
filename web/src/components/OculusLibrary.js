@@ -68,7 +68,9 @@ class OculusLibrary extends React.Component {
             Cancel
           </li>
           {apps.filter(app => (
-            !filter.trim() || (app.title && app.title.includes(filter))
+            !filter.trim() || (app.title && (
+              app.title.toLowerCase().includes(filter.toLowerCase())
+            ))
           )).map(app => (
             <li
               className="OculusLibrary__app"
