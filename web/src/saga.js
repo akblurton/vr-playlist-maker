@@ -66,8 +66,8 @@ export function* processPlaylist() {
       }
       // Calculate time to wait
       const t = duration - time  - accumulator;
-      if (t < 0) {
-        break; // Something went wrong, alert?
+      if (t <= 0) {
+        continue; // Item is before start time
       }
       accumulator += t;
       yield call(delay, t);
