@@ -3,16 +3,16 @@ import "./styles/global.styl";
 import ReactDOM from "react-dom";
 import React from "react";
 
-import store from "store";
+import store, { loading } from "store";
 import { setMaster } from "helpers/redux";
-
-setMaster(store);
 
 import { AppContainer } from "react-hot-loader";
 import App from "./components/App";
 import { Provider } from "react-redux";
 
-function render() {
+async function render() {
+  await loading;
+  setMaster(store);
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>

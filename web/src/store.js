@@ -32,7 +32,6 @@ const store = createStore(
     applyMiddleware(sagaMiddleware, storageMiddleware),
   )
 );
-load(store);
 
 let task = sagaMiddleware.run(saga);
 
@@ -47,4 +46,5 @@ if (module.hot) {
   });
 }
 
+export const loading = load(store);
 export default store;
