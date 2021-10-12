@@ -29,7 +29,7 @@
     "babel-preset-target": "^0.0.5",
     "clean-webpack-plugin": "^0.1.16",
     "devtron": "^1.4.0",
-    "electron": "^1.6.11",
+    "electron": "^11.5.0",
     "electron-builder": "^19.11.1",
     "electron-devtools-installer": "^2.2.0",
     "eslint": "^4.1.1",
